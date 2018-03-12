@@ -1,7 +1,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
   <h2>Enter Data</h2>
-  <form class="col-md-12">
+  <form class="col-md-12" id="dataForm">
     <div class="form-group col-md-6">
         <label for="height">Height (in.):</label>
         <input type="text" name="height" class="form-control" ng-model="vm.newEntry.height" placeholder="Height (in.)"/>
@@ -35,8 +35,8 @@
         <input type="text" name="ldl" class="form-control" ng-model="vm.newEntry.ldl" placeholder="LDL"/>
         </div>
     <div class="form-group col-md-6">
-        <label for="glu">Glucose:</label>
-        <input type="text" name="glu" class="form-control" ng-model="vm.newEntry.glu" placeholder="Glucose"/>
+        <label for="glu">Fasting Glucose:</label>
+        <input type="text" name="glu" class="form-control" ng-model="vm.newEntry.glu" placeholder="Fasting Glucose"/>
         </div>
     <div class="form-group col-md-6">
         <label for="trg">Triglycerides:</label>

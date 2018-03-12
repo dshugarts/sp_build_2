@@ -8,6 +8,14 @@
   margin-right: 10px;
 }
 
+.about-list {
+  list-style-type: disc;
+}
+
+#dataForm {
+  padding: 30px;
+}
+
 #login {
   width: 400px;
   margin: 0 auto;
