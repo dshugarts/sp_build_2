@@ -8,6 +8,12 @@
   margin-right: 10px;
 }
 
+#login {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -24,6 +30,7 @@ body, html {
   background-color: #333333;
   color: #DDDDDD;
   padding: 15px;
+  background-color: darkred;
 }
 
 #entryForm {
