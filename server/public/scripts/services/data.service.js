@@ -105,6 +105,18 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     } // end ldl score if
     console.log('ldl score = ', ldl_score);
 
+    let cvd_score = 0;
+    cvd_score += age_score;
+    cvd_score += waist_score;
+    cvd_score += bp_score;
+    cvd_score += hdl_score;
+    cvd_score += ldl_score;
+    cvd_score += glu_score;
+    cvd_score += physical_activity_score;
+    cvd_score += sleep_score;
+    cvd_score += nicotine_score;
+    cvd_score += family_history_score;
+    console.log('TOTAL CVD SCORE = ', cvd_score);
 
     } // end addEntry
 
