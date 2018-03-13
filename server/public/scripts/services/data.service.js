@@ -10,6 +10,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         console.log('waist value = ', newEntry.waist_value);
         console.log('glu value = ', newEntry.glu_value);
         console.log('HDL = ', newEntry.hdl_value);
+        console.log('LDL = ', newEntry.ldl_value);
         console.log('nicotine value = ', newEntry.nicotine_value);
         console.log('sleep value = ', newEntry.sleep_value);
         console.log('family history value = ', newEntry.family_history_value);
@@ -17,7 +18,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         console.log('physical activity total = ', newEntry.physical_activity_value);
         
     let glu_score = 0;
-    if (newEntry.glu_value >= 100 && newEntry.glu_value < 120) {
+    if (newEntry.glu_value >= 100 && newEntry.glu_value < 126) {
         glu_score = 1;
     } else if (newEntry.glu_value < 100) {
         glu_score = 2;
@@ -93,6 +94,16 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         hdl_score = 0;
     } // end hdl score if
     console.log('hdl score = ', hdl_score);
+
+    let ldl_score = 0;
+    if (newEntry.ldl_value < 100) {
+        ldl_score = 2; 
+    } else if (newEntry.ldl_value > 99 && newEntry.ldl_value < 130) {
+        ldl_score = 1;
+    } else {
+        ldl_score = 0;
+    } // end ldl score if
+    console.log('ldl score = ', ldl_score);
 
 
     } // end addEntry
