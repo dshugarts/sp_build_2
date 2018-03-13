@@ -10,6 +10,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         console.log('nicotine value = ', newEntry.nicotine_value);
         console.log('sleep value = ', newEntry.sleep_value);
         console.log('family history value = ', newEntry.family_history_value);
+        console.log('blood pressure value = ', newEntry.systolic_value + "/" + newEntry.diastolic_value);
         
     let glu_score = 0;
     if (newEntry.glu_value >= 100 && newEntry.glu_value < 120) {
@@ -45,6 +46,15 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     } // end family history if
     console.log('family history score = ', family_history_score);
 
+    let bp_score = 0;
+    if ((newEntry.systolic_value < 160 && newEntry.systolic_value > 139) || (newEntry.diastolic_value <100 && newEntry.diastolic_value > 89)) {
+        bp_score = 1;
+    } else if (newEntry.systolic_value < 140 && newEntry.diastolic_value < 90) {
+        bp_score = 2;
+    } else {
+        bp_score = 0;
+    } // end bp score
+    console.log('bp score = ', bp_score);
 
 
 
