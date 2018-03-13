@@ -9,6 +9,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         console.log('age value = ', newEntry.gender, newEntry.age_value);
         console.log('waist value = ', newEntry.waist_value);
         console.log('glu value = ', newEntry.glu_value);
+        console.log('HDL = ', newEntry.hdl_value);
         console.log('nicotine value = ', newEntry.nicotine_value);
         console.log('sleep value = ', newEntry.sleep_value);
         console.log('family history value = ', newEntry.family_history_value);
@@ -83,7 +84,15 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     } // end waist score if
     console.log('waist score = ', waist_score);
 
-
+    let hdl_score = 0;
+    if (newEntry.hdl_value > 59) {
+        hdl_score = 2;
+    } else if ((newEntry.hdl_value < 60 && newEntry.hdl_value > 40 && newEntry.gender === "M") || (newEntry.hdl_value < 60 && newEntry.hdl_value > 50 && newEntry.gender === "F")) {
+        hdl_score = 1;
+    } else {
+        hdl_score = 0;
+    } // end hdl score if
+    console.log('hdl score = ', hdl_score);
 
 
     } // end addEntry
