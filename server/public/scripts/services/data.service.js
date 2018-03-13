@@ -9,6 +9,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         console.log('glu value = ', newEntry.glu_value);
         console.log('nicotine value = ', newEntry.nicotine_value);
         console.log('sleep value = ', newEntry.sleep_value);
+        console.log('family history value = ', newEntry.family_history_value);
         
     let glu_score = 0;
     if (newEntry.glu_value >= 100 && newEntry.glu_value < 120) {
@@ -36,6 +37,13 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     } // end sleep if
     console.log('sleep score = ', sleep_score);
 
+    let family_history_score = 0;
+    if (newEntry.family_history_value === "false") {
+        family_history_score = 2;
+    } else {
+        family_history_score = 0;
+    } // end family history if
+    console.log('family history score = ', family_history_score);
 
 
 
