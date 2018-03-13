@@ -20,6 +20,7 @@ CREATE TABLE data (
 	sleep_value DECIMAL(3,1),
 	height_value DECIMAL(4,2),
 	weight_value DECIMAL(4,1),
+	gender char(1),
 	age_score INT,
 	physical_activity_score INT,
 	family_history_score INT,
