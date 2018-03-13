@@ -1,12 +1,12 @@
 CREATE TABLE users (
-  id serial primary key,
-  username varchar(80) not null UNIQUE,
+  id serial,
+  username varchar(80) not null UNIQUE primary key,
   password varchar(240) not null
 );
 
 CREATE TABLE data (
 	entry_id serial primary key,
-	username INT REFERENCES users ON DELETE CASCADE,
+	username varchar(80) REFERENCES users ON DELETE CASCADE,
 	age_value INT,
 	family_history_value BOOLEAN,
 	physical_activity_value INT,
@@ -17,7 +17,7 @@ CREATE TABLE data (
 	hdl_value INT,
 	ldl_value INT,
 	waist_value DECIMAL(3,1),
-	sleep_value BOOLEAN,
+	sleep_value DECIMAL(3,1),
 	height_value DECIMAL(4,2),
 	weight_value DECIMAL(4,1),
 	age_score INT,
