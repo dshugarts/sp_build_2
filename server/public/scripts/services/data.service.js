@@ -6,6 +6,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
 
     self.addEntry = function(newEntry, username) {
         console.log(newEntry, username);
+        console.log('age value = ', newEntry.gender, newEntry.age_value);
         console.log('glu value = ', newEntry.glu_value);
         console.log('nicotine value = ', newEntry.nicotine_value);
         console.log('sleep value = ', newEntry.sleep_value);
@@ -65,8 +66,13 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     } // end activity score if
     console.log('physical activity score = ', physical_activity_score);
 
-
-
+    let age_score = 0;
+    if ((newEntry.age_value < 45 && newEntry.gender === "M") || (newEntry.age_value < 55 && newEntry.gender === "F")) {
+        age_score = 2;
+    } else {
+        age_score = 0;
+    } // end age score if
+    console.log('age score = ', age_score);
 
     } // end addEntry
 
