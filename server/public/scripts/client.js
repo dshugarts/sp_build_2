@@ -11,6 +11,14 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/home.html',
       controller: 'LoginController as vm',
     })
+    .when('/report', {
+      templateUrl: '/views/templates/report.html',
+      controller: 'ReportController as vm',
+    })
+    .when('/resources', {
+      templateUrl: '/views/templates/resources.html',
+      controller: 'ResourcesController as vm',
+    })
     .when('/update', {
       templateUrl: '/views/templates/update.html',
       controller: 'UpdateController as vm',
