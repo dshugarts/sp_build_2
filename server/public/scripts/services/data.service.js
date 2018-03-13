@@ -11,6 +11,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         console.log('sleep value = ', newEntry.sleep_value);
         console.log('family history value = ', newEntry.family_history_value);
         console.log('blood pressure value = ', newEntry.systolic_value + "/" + newEntry.diastolic_value);
+        console.log('physical activity total = ', newEntry.physical_activity_value);
         
     let glu_score = 0;
     if (newEntry.glu_value >= 100 && newEntry.glu_value < 120) {
@@ -56,6 +57,13 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     } // end bp score
     console.log('bp score = ', bp_score);
 
+    let physical_activity_score = 0;
+    if (newEntry.physical_activity_value >= 150) {
+        physical_activity_score = 2;
+    } else {
+        physical_activity_score = 0;
+    } // end activity score if
+    console.log('physical activity score = ', physical_activity_score);
 
 
 
