@@ -2,7 +2,12 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     console.log('DataService Loaded');
     var self = this;
     self.newEntry = {};
+    self.entryObject = {};
     self.entryObject = {list: []};
+
+    self.getObject = function(thing) {
+        console.log(thing);
+    }
 
     self.addEntry = function(newEntry, username) {
         console.log(newEntry, username);
@@ -118,7 +123,17 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     cvd_score += family_history_score;
     console.log('TOTAL CVD SCORE = ', cvd_score);
 
+    entryObject = {
+        cvd_score: cvd_score,
+        username: username,
+        newEntry: newEntry
+    } // end entryObject
+
+    self.getObject(entryObject);
+
+
     } // end addEntry
+
 
 
 
