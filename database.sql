@@ -16,6 +16,7 @@ CREATE TABLE data (
 	glu_value INT,
 	hdl_value INT,
 	ldl_value INT,
+	trg_value INT,
 	waist_value DECIMAL(3,1),
 	sleep_value DECIMAL(3,1),
 	height_value DECIMAL(4,2),

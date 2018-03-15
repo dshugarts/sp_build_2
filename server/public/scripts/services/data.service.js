@@ -5,8 +5,19 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.entryObject = {};
     self.entryObject = {list: []};
 
-    self.getObject = function(thing) {
-        console.log(thing);
+    self.postData = function(entry) {
+        console.log(entry);
+        $http({
+            method: 'POST',
+            url: '/data',
+            data: {entry: entry}
+        }).then(function (response) {
+            console.log(response);
+            $location.url('/user');
+            self.newEntry = {};
+        }).catch(function (error) {
+            console.log('post error', error);
+        })
     }
 
     self.addEntry = function(newEntry, username) {
@@ -124,13 +135,36 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     console.log('TOTAL CVD SCORE = ', cvd_score);
 
     entryObject = {
-        cvd_score: cvd_score,
         username: username,
-        newEntry: newEntry
+        age_value: newEntry.age_value,
+        family_history_value: newEntry.family_history_value,
+        physical_activity_value: newEntry.physical_activity_value,
+        systolic_value: newEntry.systolic_value,
+        diastolic_value: newEntry.diastolic_value,
+        nicotine_value: newEntry.nicotine_value,
+        glu_value: newEntry.glu_value,
+        hdl_value: newEntry.hdl_value,
+        ldl_value: newEntry.ldl_value,
+        trg_value: newEntry.trg_value,
+        waist_value: newEntry.waist_value,
+        sleep_value: newEntry.sleep_value,
+        height_value: newEntry.height_value,
+        weight_value: newEntry.weight_value,
+        gender: newEntry.gender,
+        age_score: age_score,
+        physical_activity_score: physical_activity_score,
+        family_history_score: family_history_score,
+        bp_score: bp_score,
+        nicotine_score: nicotine_score,
+        glu_score: glu_score,
+        hdl_score: hdl_score,
+        ldl_score: ldl_score,
+        waist_score: waist_score,
+        sleep_score: sleep_score,
+        cvd_score: cvd_score
     } // end entryObject
 
-    self.getObject(entryObject);
-
+    self.postData(entryObject);
 
     } // end addEntry
 
