@@ -8,6 +8,10 @@
   margin-right: 10px;
 }
 
+#myChart {
+  float: left;
+}
+
 .about-list {
   list-style-type: disc;
 }

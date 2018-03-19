@@ -1,4 +1,123 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
     <h2>My Detailed Report</h2>
+    <section class="col-md-12" ng-repeat="data in vm.dataArray">
+        <div class="col-md-6">
+            <h4>My CVD Score:</h4>
+        </div>
+        <div class="col-md-6">
+            <h4>{{data.cvd_score}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Age:</h4>
+            </div>
+            <div class="col-md-6">
+                <h4>{{data.age_value}}</h4>
+            </div>
+            <div class="col-md-12">
+                <h4>Data Explanation</h4>
+            </div>
+        <div class="col-md-6">
+                    <h4>Blood Pressure:</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{data.systolic_value}}/{{data.diastolic_value}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Data Explanation</h4>
+                </div>
+        <div class="col-md-6">
+                <h4>HDL:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.hdl_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>LDL:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.ldl_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Glucose:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.glu_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Waist Size:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.waist_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Family History:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.family_history_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Physical Activity:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.physical_activity_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Nicotine:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.nicotine_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Sleep:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.sleep_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Triglycerides:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.trg_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>Weight:</h4>
+        </div>
+        <div class="col-md-6">
+                <h4>{{data.weight_value}}</h4>
+        </div>
+        <div class="col-md-12">
+                <h4>Data Explanation</h4>
+        </div>
+    </section>
 </div>
