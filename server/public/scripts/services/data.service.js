@@ -4,6 +4,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.newEntry = {};
     self.entryObject = {};
     self.entryObject = {list: []};
+    self.dataArray = [];
 
     self.postData = function(entry) {
         console.log(entry);
@@ -20,8 +21,21 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         })
     }
 
-    self.addEntry = function(newEntry, username) {
-        console.log(newEntry, username);
+    self.getData = function(id){
+        console.log('HHHHH', id);
+        $http({
+          method: 'GET',
+          url: `/data/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.dataArray = response.data;
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getData
+
+    self.addEntry = function(newEntry, id) {
+        console.log(newEntry, id);
         console.log('age value = ', newEntry.gender, newEntry.age_value);
         console.log('waist value = ', newEntry.waist_value);
         console.log('glu value = ', newEntry.glu_value);
@@ -135,7 +149,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     console.log('TOTAL CVD SCORE = ', cvd_score);
 
     entryObject = {
-        username: username,
+        id: id,
         age_value: newEntry.age_value,
         family_history_value: newEntry.family_history_value,
         physical_activity_value: newEntry.physical_activity_value,

@@ -7,8 +7,8 @@ myApp.controller('UpdateController', ['$http', '$location', 'UserService', 'Data
 
     self.newEntry = DataService.newEntry;
     self.entryObject = DataService.entryObject;
-    self.username = UserService.userObject.userName;
-    console.log(self.username);
+    self.id = UserService.userObject.id;
+    console.log(self.id);
     self.addEntry = DataService.addEntry;
 
 

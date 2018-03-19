@@ -1,4 +1,9 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
     <h2>My Dashboard</h2>
+    <div ng-repeat="data in vm.dataArray">
+        <p>{{data.id}}</p>
+        <p>{{data.cvd_score}}</p>
+    </div>
 </div>
+
