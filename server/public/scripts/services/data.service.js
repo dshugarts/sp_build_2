@@ -5,6 +5,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.entryObject = {};
     self.entryObject = {list: []};
     self.dataArray = [];
+    self.myScore = 0;
 
     self.postData = function(entry) {
         console.log(entry);
@@ -29,6 +30,8 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         }).then(function(response){
           console.log('response', response.data);
           self.dataArray = response.data;
+          self.myScore = self.dataArray[0].cvd_score;
+          console.log('service myScore ', self.myScore);
         }).catch(function(error){
           console.log('Error getting data', error);
         })
