@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/:id', (request, response) => {
   const id = request.params.id;
   console.log('get id', id);
-  const sqlText = `SELECT id, cvd_score FROM data WHERE id=${id}`;
+  const sqlText = `SELECT entry_id, id, cvd_score FROM data WHERE id=${id} ORDER BY entry_id DESC LIMIT 1`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -17,10 +17,6 @@ router.get('/:id', (request, response) => {
       response.sendStatus(500);
     })
 });
-
-
-
-
 
 
 
