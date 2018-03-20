@@ -18,19 +18,18 @@ myApp.controller('UserController', ['UserService', 'DataService', function(UserS
 
  var data = {
   labels: [
-    "My Heart Health Level",
-    "Risk Factor Level"
+    "My Heart Health Level"
   ],
   datasets: [
     {
       data: [self.myScore, (20-self.myScore)],
       backgroundColor: [
         "Green",
-        "Red"
+        "White"
       ],
       hoverBackgroundColor: [
         "lightgreen",
-        "darkred"
+        "White"
       ]
     }]
 };
@@ -61,6 +60,8 @@ var chart = new Chart(document.getElementById('doughnut-chart'), {
   data: data,
   options: {
     responsive: true,
+    tooltips: {enabled: false},
+    hover: {mode: null},
     title: {
       display: true,
       text: 'How Healthy is My Heart?'
