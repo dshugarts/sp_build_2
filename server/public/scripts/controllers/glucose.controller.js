@@ -24,7 +24,7 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
               label: "Glucose",
               borderColor: "crimson",
               fill: false
-            }]
+        }]
         },
         options: {
           title: {
