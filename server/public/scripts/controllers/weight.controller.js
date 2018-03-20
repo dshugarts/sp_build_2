@@ -6,7 +6,9 @@ myApp.controller('WeightController', ['$http', '$location', 'UserService', 'Post
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
     self.getDates = PostDataService.getDates;
-    self.datesArray = PostDataService.datesArray;
+    self.getChartData = PostDataService.getChartData;    
+    self.chartValuesArray = PostDataService.chartValuesArray;
+    self.reportPage = PostDataService.reportPage;
     self.gluScore = PostDataService.gluScore;
   
 

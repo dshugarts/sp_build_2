@@ -18,10 +18,10 @@ router.get('/:id', (request, response) => {
     })
 });
 
-router.get('/dates/:id', (request, response) => {
+router.get('/glu/:id', (request, response) => {
   const id = request.params.id;
-  console.log('get dates id', id);
-  const sqlText = `SELECT entry_id, id, data_date, glu_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  console.log('get glu id', id);
+  const sqlText = `SELECT entry_id, id, glu_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -31,7 +31,22 @@ router.get('/dates/:id', (request, response) => {
       console.log('Error on Get:', error);
       response.sendStatus(500);
     })
-});
+}); // end get glu values
+
+router.get('/hdl/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get hdl id', id);
+  const sqlText = `SELECT entry_id, id, hdl_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get hdl values
 
 
 router.post('/', (request, response) => {

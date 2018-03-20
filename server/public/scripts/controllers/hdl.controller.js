@@ -5,13 +5,13 @@ myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDat
     self.postdataService = PostDataService;
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
-    self.getDates = PostDataService.getDates;
-    self.datesArray = PostDataService.datesArray;
-    self.gluScore = PostDataService.gluScore;
+    self.hdlValuesArray = PostDataService.hdlValuesArray;
+    self.reportPage = PostDataService.reportPage;
+    self.hdlScore = PostDataService.hdlScore;
   
 
 
-    console.log('GCAA', self.gluScore);
+    console.log('HDLCAA', self.hdlScore);
 
 
     new Chart(document.getElementById("line-chart"), {
@@ -19,7 +19,7 @@ myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDat
         data: {
           labels: [1, 2, 3, 4, 5],
           datasets: [{ 
-              data: [self.gluScore[0], self.gluScore[1], self.gluScore[2], self.gluScore[3], self.gluScore[4]],
+              data: [self.hdlScore[0], self.hdlScore[1], self.hdlScore[2], self.hdlScore[3], self.hdlScore[4]],
               label: "Glucose",
               borderColor: "crimson",
               fill: false
@@ -28,7 +28,7 @@ myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDat
         options: {
           title: {
             display: true,
-            text: 'My Glucose Readings Over Time',
+            text: 'My HDL Readings Over Time',
             position: 'bottom'
           },
           legend: {

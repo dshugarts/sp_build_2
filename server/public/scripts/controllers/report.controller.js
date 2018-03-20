@@ -5,11 +5,12 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.DataService = DataService;
     self.PostDataService = PostDataService;
     self.getGluData = PostDataService.getGluData;
+    self.getHdlData = PostDataService.getHdlData;
     self.userObject = UserService.userObject;
     self.dataArray = DataService.dataArray;
     self.getData = DataService.getData;
     self.id = UserService.userObject.id;
-    self.myScore = DataService.myScore;
-    self.pScore = DataService.pScore;
+
+
 
   }]);
