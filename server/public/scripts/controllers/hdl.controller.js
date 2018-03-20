@@ -20,7 +20,7 @@ myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDat
           labels: [1, 2, 3, 4, 5],
           datasets: [{ 
               data: [self.hdlScore[0], self.hdlScore[1], self.hdlScore[2], self.hdlScore[3], self.hdlScore[4]],
-              label: "Glucose",
+              label: "HDL",
               borderColor: "crimson",
               fill: false
             }]

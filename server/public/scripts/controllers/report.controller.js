@@ -6,6 +6,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.PostDataService = PostDataService;
     self.getGluData = PostDataService.getGluData;
     self.getHdlData = PostDataService.getHdlData;
+    self.getLdlData = PostDataService.getLdlData;
     self.userObject = UserService.userObject;
     self.dataArray = DataService.dataArray;
     self.getData = DataService.getData;

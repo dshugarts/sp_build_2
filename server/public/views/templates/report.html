@@ -39,7 +39,7 @@
                 <h4>Data Explanation</h4>
         </div>
         <div class="col-md-8">
-                <h4><a href="/#!/ldl">LDL:</a></h4>
+                <h4><a ng-click="vm.getLdlData(vm.id)">LDL:</a></h4>
         </div>
         <div class="col-md-4">
                 <h4><strong>{{data.ldl_value}}</strong></h4>
@@ -48,7 +48,7 @@
                 <h4>Data Explanation</h4>
         </div>
         <div class="col-md-8">
-                <h4><a ng-click="vm.getGluData(vm.id)" href="/#!/glucose">Glucose:</a></h4>
+                <h4><a ng-click="vm.getGluData(vm.id)">Glucose:</a></h4>
         </div>
         <div class="col-md-4">
                 <h4><strong>{{data.glu_value}}</strong></h4>

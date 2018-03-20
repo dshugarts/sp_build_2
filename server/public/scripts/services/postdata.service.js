@@ -6,6 +6,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.gluScore = [];
     self.hdlValuesArray = [];
     self.hdlScore = [];
+    self.ldlValuesArray = [];
+    self.ldlScore = [];
 
     self.reportPage = function() {
       $location.url('/report');
@@ -47,6 +49,26 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           console.log('hdl axis', self.hdlScore);
         }).then(function(response) {
           $location.url('/hdl');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getHDLData
+
+      self.getLdlData = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/ldl/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.ldlValuesArray = response.data;
+          for (item of self.ldlValuesArray) {
+          self.ldlScore.push(item.ldl_value);
+          }
+          console.log('PDS myScore ', self.ldlValuesArray);
+          console.log('ldl axis', self.ldlScore);
+        }).then(function(response) {
+          $location.url('/ldl');
         }).catch(function(error){
           console.log('Error getting data', error);
         })
