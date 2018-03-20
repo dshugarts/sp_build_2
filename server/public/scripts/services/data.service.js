@@ -153,8 +153,11 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     cvd_score += family_history_score;
     console.log('TOTAL CVD SCORE = ', cvd_score);
 
+    let now_data_date = new Date();
+    
     entryObject = {
         id: id,
+        data_date: now_data_date,
         age_value: newEntry.age_value,
         family_history_value: newEntry.family_history_value,
         physical_activity_value: newEntry.physical_activity_value,

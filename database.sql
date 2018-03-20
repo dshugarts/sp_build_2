@@ -7,6 +7,7 @@ CREATE TABLE users (
 CREATE TABLE data (
 	entry_id serial primary key,
 	id INT REFERENCES users ON DELETE CASCADE,
+	data_date DATE,
 	age_value INT,
 	family_history_value BOOLEAN,
 	physical_activity_value INT,
