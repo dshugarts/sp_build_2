@@ -45,6 +45,10 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/glucose', {
+      templateUrl: '/views/charts/glucose.html',
+      controller: 'GlucoseController as vm',
+    })
     .otherwise({
       template: '<h1>404</h1>'
     });
