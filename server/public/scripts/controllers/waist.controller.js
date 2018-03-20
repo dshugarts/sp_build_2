@@ -5,14 +5,13 @@ myApp.controller('WaistController', ['$http', '$location', 'UserService', 'PostD
     self.postdataService = PostDataService;
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
-    self.getChartData = PostDataService.getChartData;
-    self.chartValuesArray = PostDataService.chartValuesArray;
+    self.waistValuesArray = PostDataService.waistValuesArray;
     self.reportPage = PostDataService.reportPage;
-    self.gluScore = PostDataService.gluScore;
+    self.waistScore = PostDataService.waistScore;
   
 
 
-    console.log('GCAA', self.gluScore);
+    console.log('GCAA', self.waistScore);
 
 
     new Chart(document.getElementById("line-chart"), {
@@ -20,8 +19,8 @@ myApp.controller('WaistController', ['$http', '$location', 'UserService', 'PostD
         data: {
           labels: [1, 2, 3, 4, 5],
           datasets: [{ 
-              data: [self.gluScore[0], self.gluScore[1], self.gluScore[2], self.gluScore[3], self.gluScore[4]],
-              label: "Glucose",
+              data: [self.waistScore[0], self.waistScore[1], self.waistScore[2], self.waistScore[3], self.waistScore[4]],
+              label: "Waist Size (in.)",
               borderColor: "crimson",
               fill: false
             }]
@@ -29,7 +28,7 @@ myApp.controller('WaistController', ['$http', '$location', 'UserService', 'PostD
         options: {
           title: {
             display: true,
-            text: 'My Glucose Readings Over Time',
+            text: 'My Waist Size Readings Over Time',
             position: 'bottom'
           },
           legend: {

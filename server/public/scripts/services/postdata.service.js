@@ -12,6 +12,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.trgScore = [];
     self.heartHealthValuesArray = [];
     self.heartHealthScore = [];
+    self.waistValuesArray = [];
+    self.waistScore = [];
 
     self.reportPage = function() {
       $location.url('/report');
@@ -117,6 +119,26 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           console.log('Error getting data', error);
         })
       } //end getHeartHealthData
+
+      self.getWaistData = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/waist/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.waistValuesArray = response.data;
+          for (item of self.waistValuesArray) {
+          self.waistScore.push(item.waist_value);
+          }
+          console.log('PDS myScore ', self.waistValuesArray);
+          console.log('waist axis', self.waistScore);
+        }).then(function(response) {
+          $location.url('/waist');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getWaistData
     
     self.getChartData = function(id) {
       console.log('hi');
