@@ -8,7 +8,7 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
     self.getDates = PostDataService.getDates;
     self.datesArray = PostDataService.datesArray;
     self.gluScore = PostDataService.gluScore;
-  
+    self.reportPage = PostDataService.reportPage;
 
 
     console.log('GCAA', self.gluScore);

@@ -4,7 +4,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.datesArray = [];
     self.gluScore = [];
 
-    self.getDates = function(id){
+
+    self.getGluData = function(id){
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -22,6 +23,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
         })
       } //end getDates
 
-    
+    self.reportPage = function() {
+      $location.url('/report');
+    }
 
 }]);

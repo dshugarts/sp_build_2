@@ -4,7 +4,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.userService = UserService;
     self.DataService = DataService;
     self.PostDataService = PostDataService;
-    self.getDates = PostDataService.getDates;
+    self.getGluData = PostDataService.getGluData;
     self.userObject = UserService.userObject;
     self.dataArray = DataService.dataArray;
     self.getData = DataService.getData;
@@ -12,5 +12,4 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.myScore = DataService.myScore;
     self.pScore = DataService.pScore;
 
-    self.getDates(self.id);
   }]);

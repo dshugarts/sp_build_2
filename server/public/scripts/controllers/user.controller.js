@@ -12,7 +12,7 @@ myApp.controller('UserController', ['UserService', 'DataService', function(UserS
 
   console.log('user controller: ', self.id);
 
-  self.getData(self.id);
+self.getData(self.id);
  console.log('controller', self.myScore);
   
 
