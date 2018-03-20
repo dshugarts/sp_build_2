@@ -10,5 +10,5 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.myScore = DataService.myScore;
     self.pScore = DataService.pScore;
 
-  
+
   }]);

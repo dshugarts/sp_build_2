@@ -34,27 +34,6 @@ myApp.controller('UserController', ['UserService', 'DataService', function(UserS
     }]
 };
 
-Chart.pluginService.register({
-  beforeDraw: function(chart) {
-    var width = chart.chart.width,
-        height = chart.chart.height,
-        ctx = chart.chart.ctx;
-        
-
-    ctx.restore();
-    var fontSize = (height / 114).toFixed(2);
-    ctx.font = fontSize + "em sans-serif";
-    ctx.textBaseline = "middle";
-
-    var text = self.pScore;
-        textX = Math.round((width - ctx.measureText(text).width) / 2),
-        textY = height / 1.80;
-
-    ctx.fillText(text, textX, textY);
-    ctx.save();
-  }
-});
-
 var chart = new Chart(document.getElementById('doughnut-chart'), {
   type: 'doughnut',
   data: data,
