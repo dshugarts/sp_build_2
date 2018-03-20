@@ -3,7 +3,7 @@
     <h2>My Detailed Report</h2>
     <section class="col-md-12" ng-repeat="data in vm.dataArray">
         <div class="col-md-8">
-                <h4><a href="/#!/hearthealth">My Heart Health Score:</a></h4>
+                <h4><a ng-click="vm.getHeartHealthData(vm.id)">My Heart Health Score:</a></h4>
         </div>
         <div class="col-md-4">
             <h4><strong>{{data.cvd_score}}</strong></h4>
@@ -103,7 +103,7 @@
                 <h4>Data Explanation</h4>
         </div>
         <div class="col-md-8">
-                <h4><a href="/#!/trg">Triglycerides:</a></h4>
+                <h4><a ng-click="vm.getTrgData(vm.id)">Triglycerides:</a></h4>
         </div>
         <div class="col-md-4">
                 <h4><strong>{{data.trg_value}}</strong></h4>

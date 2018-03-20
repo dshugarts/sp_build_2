@@ -5,22 +5,21 @@ myApp.controller('HeartHealthController', ['$http', '$location', 'UserService', 
     self.postdataService = PostDataService;
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
-    self.getChartData = PostDataService.getChartData;
-    self.chartValuesArray = PostDataService.chartValuesArray;
+    self.heartHealthValuesArray = PostDataService.heartHealthValuesArray;
     self.reportPage = PostDataService.reportPage;
-    self.gluScore = PostDataService.gluScore;
+    self.heartHealthScore = PostDataService.heartHealthScore;
   
 
 
-    console.log('GCAA', self.gluScore);
+    console.log('GCAA', self.heartHealthScore);
 
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
           labels: [1, 2, 3, 4, 5],
           datasets: [{ 
-              data: [self.gluScore[0], self.gluScore[1], self.gluScore[2], self.gluScore[3], self.gluScore[4]],
-              label: "Glucose",
+              data: [self.heartHealthScore[0], self.heartHealthScore[1], self.heartHealthScore[2], self.heartHealthScore[3], self.heartHealthScore[4]],
+              label: "Heart Health Score",
               borderColor: "crimson",
               fill: false
             }]
@@ -28,7 +27,7 @@ myApp.controller('HeartHealthController', ['$http', '$location', 'UserService', 
         options: {
           title: {
             display: true,
-            text: 'My Glucose Readings Over Time',
+            text: 'My Heart Health Readings Over Time',
             position: 'bottom'
           },
           legend: {

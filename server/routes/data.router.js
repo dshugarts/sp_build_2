@@ -63,6 +63,36 @@ router.get('/ldl/:id', (request, response) => {
     })
 }); // end get ldl values
 
+router.get('/trg/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get trg id', id);
+  const sqlText = `SELECT entry_id, id, trg_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get trg values
+
+router.get('/hearthealth/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get hearthealth id', id);
+  const sqlText = `SELECT entry_id, id, cvd_score FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get hearthealth values
+
 
 router.post('/', (request, response) => {
     const entry = request.body.entry;

@@ -8,6 +8,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.hdlScore = [];
     self.ldlValuesArray = [];
     self.ldlScore = [];
+    self.trgValuesArray = [];
+    self.trgScore = [];
+    self.heartHealthValuesArray = [];
+    self.heartHealthScore = [];
 
     self.reportPage = function() {
       $location.url('/report');
@@ -72,7 +76,47 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
         }).catch(function(error){
           console.log('Error getting data', error);
         })
-      } //end getHDLData
+      } //end getLDLData
+
+      self.getTrgData = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/trg/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.trgValuesArray = response.data;
+          for (item of self.trgValuesArray) {
+          self.trgScore.push(item.trg_value);
+          }
+          console.log('PDS myScore ', self.trgValuesArray);
+          console.log('trg axis', self.trgScore);
+        }).then(function(response) {
+          $location.url('/trg');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getTRGData
+
+      self.getHeartHealthData = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/hearthealth/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.heartHealthValuesArray = response.data;
+          for (item of self.heartHealthValuesArray) {
+          self.heartHealthScore.push(item.cvd_score);
+          }
+          console.log('PDS myScore ', self.heartHealthValuesArray);
+          console.log('heart health axis', self.heartHealthScore);
+        }).then(function(response) {
+          $location.url('/hearthealth');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getHeartHealthData
     
     self.getChartData = function(id) {
       console.log('hi');

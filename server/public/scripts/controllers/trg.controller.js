@@ -6,13 +6,13 @@ myApp.controller('TRGController', ['$http', '$location', 'UserService', 'PostDat
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
     self.getChartData = PostDataService.getChartData;
-    self.chartValuesArray = PostDataService.chartValuesArray;
+    self.trgValuesArray = PostDataService.trgValuesArray;
     self.reportPage = PostDataService.reportPage;
-    self.gluScore = PostDataService.gluScore;
+    self.trgScore = PostDataService.trgScore;
   
 
 
-    console.log('GCAA', self.gluScore);
+    console.log('GCAA', self.trgScore);
 
 
     new Chart(document.getElementById("line-chart"), {
@@ -20,8 +20,8 @@ myApp.controller('TRGController', ['$http', '$location', 'UserService', 'PostDat
         data: {
           labels: [1, 2, 3, 4, 5],
           datasets: [{ 
-              data: [self.gluScore[0], self.gluScore[1], self.gluScore[2], self.gluScore[3], self.gluScore[4]],
-              label: "Glucose",
+              data: [self.trgScore[0], self.trgScore[1], self.trgScore[2], self.trgScore[3], self.trgScore[4]],
+              label: "Triglycerides",
               borderColor: "crimson",
               fill: false
             }]
@@ -29,7 +29,7 @@ myApp.controller('TRGController', ['$http', '$location', 'UserService', 'PostDat
         options: {
           title: {
             display: true,
-            text: 'My Glucose Readings Over Time',
+            text: 'My Triglycerides Readings Over Time',
             position: 'bottom'
           },
           legend: {
