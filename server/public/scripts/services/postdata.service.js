@@ -14,6 +14,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.heartHealthScore = [];
     self.waistValuesArray = [];
     self.waistScore = [];
+    self.sleepValuesArray = [];
+    self.sleepScore = [];
+    self.weightValuesArray = [];
+    self.weightScore = [];
 
     self.reportPage = function() {
       $location.url('/report');
@@ -139,6 +143,46 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           console.log('Error getting data', error);
         })
       } //end getWaistData
+
+      self.getSleepData = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/sleep/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.sleepValuesArray = response.data;
+          for (item of self.sleepValuesArray) {
+          self.sleepScore.push(item.sleep_value);
+          }
+          console.log('PDS myScore ', self.sleepValuesArray);
+          console.log('sleep axis', self.sleepScore);
+        }).then(function(response) {
+          $location.url('/sleep');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getSleepData
+
+      self.getWeightData = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/weight/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.weightValuesArray = response.data;
+          for (item of self.weightValuesArray) {
+          self.weightScore.push(item.weight_value);
+          }
+          console.log('PDS myScore ', self.weightValuesArray);
+          console.log('weight axis', self.weightScore);
+        }).then(function(response) {
+          $location.url('/weight');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getWeightData
     
     self.getChartData = function(id) {
       console.log('hi');

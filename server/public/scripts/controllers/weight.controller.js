@@ -5,15 +5,14 @@ myApp.controller('WeightController', ['$http', '$location', 'UserService', 'Post
     self.postdataService = PostDataService;
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
-    self.getDates = PostDataService.getDates;
-    self.getChartData = PostDataService.getChartData;    
-    self.chartValuesArray = PostDataService.chartValuesArray;
+    self.getDates = PostDataService.getDates; 
+    self.weightValuesArray = PostDataService.weightValuesArray;
     self.reportPage = PostDataService.reportPage;
-    self.gluScore = PostDataService.gluScore;
+    self.weightScore = PostDataService.weightScore;
   
 
 
-    console.log('GCAA', self.gluScore);
+    console.log('GCAA', self.weightScore);
 
 
     new Chart(document.getElementById("line-chart"), {
@@ -21,8 +20,8 @@ myApp.controller('WeightController', ['$http', '$location', 'UserService', 'Post
         data: {
           labels: [1, 2, 3, 4, 5],
           datasets: [{ 
-              data: [self.gluScore[0], self.gluScore[1], self.gluScore[2], self.gluScore[3], self.gluScore[4]],
-              label: "Glucose",
+              data: [self.weightScore[0], self.weightScore[1], self.weightScore[2], self.weightScore[3], self.weightScore[4]],
+              label: "Weight (lbs.)",
               borderColor: "crimson",
               fill: false
             }]
@@ -30,7 +29,7 @@ myApp.controller('WeightController', ['$http', '$location', 'UserService', 'Post
         options: {
           title: {
             display: true,
-            text: 'My Glucose Readings Over Time',
+            text: 'My Weight Readings Over Time',
             position: 'bottom'
           },
           legend: {

@@ -5,14 +5,13 @@ myApp.controller('SleepController', ['$http', '$location', 'UserService', 'PostD
     self.postdataService = PostDataService;
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
-    self.getChartData = PostDataService.getChartData;
-    self.chartValuesArray = PostDataService.chartValuesArray;
+    self.sleepValuesArray = PostDataService.sleepValuesArray;
     self.reportPage = PostDataService.reportPage;
-    self.gluScore = PostDataService.gluScore;
+    self.sleepScore = PostDataService.sleepScore;
   
 
 
-    console.log('GCAA', self.gluScore);
+    console.log('GCAA', self.sleepScore);
 
 
     new Chart(document.getElementById("line-chart"), {
@@ -20,8 +19,8 @@ myApp.controller('SleepController', ['$http', '$location', 'UserService', 'PostD
         data: {
           labels: [1, 2, 3, 4, 5],
           datasets: [{ 
-              data: [self.gluScore[0], self.gluScore[1], self.gluScore[2], self.gluScore[3], self.gluScore[4]],
-              label: "Glucose",
+              data: [self.sleepScore[0], self.sleepScore[1], self.sleepScore[2], self.sleepScore[3], self.sleepScore[4]],
+              label: "Sleep (hrs/night)",
               borderColor: "crimson",
               fill: false
             }]
@@ -29,7 +28,7 @@ myApp.controller('SleepController', ['$http', '$location', 'UserService', 'PostD
         options: {
           title: {
             display: true,
-            text: 'My Glucose Readings Over Time',
+            text: 'My Sleep Readings Over Time',
             position: 'bottom'
           },
           legend: {

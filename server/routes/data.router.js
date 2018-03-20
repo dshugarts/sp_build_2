@@ -108,6 +108,36 @@ router.get('/waist/:id', (request, response) => {
     })
 }); // end get waist values
 
+router.get('/sleep/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get sleep id', id);
+  const sqlText = `SELECT entry_id, id, sleep_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get sleep values
+
+router.get('/weight/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get weight id', id);
+  const sqlText = `SELECT entry_id, id, weight_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get weight values
+
 
 router.post('/', (request, response) => {
     const entry = request.body.entry;
