@@ -18,6 +18,9 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.sleepScore = [];
     self.weightValuesArray = [];
     self.weightScore = [];
+    self.bpValuesArray = [];
+    self.systolicScore = [];
+    self.diastolicScore = [];
 
     self.reportPage = function() {
       $location.url('/report');
@@ -183,6 +186,28 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           console.log('Error getting data', error);
         })
       } //end getWeightData
+
+      self.getBpData = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/bp/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.bpValuesArray = response.data;
+          for (item of self.bpValuesArray) {
+          self.systolicScore.push(item.systolic_value);
+          self.diastolicScore.push(item.diastolic_value);
+          }
+          console.log('PDS myScore ', self.bpValuesArray);
+          console.log('systolic axis', self.systolicScore);
+          console.log('diastolic axis', self.diastolicScore);
+        }).then(function(response) {
+          $location.url('/bp');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getBPData
     
     self.getChartData = function(id) {
       console.log('hi');

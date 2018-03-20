@@ -138,6 +138,21 @@ router.get('/weight/:id', (request, response) => {
     })
 }); // end get weight values
 
+router.get('/bp/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get bp id', id);
+  const sqlText = `SELECT entry_id, id, systolic_value, diastolic_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get bp values
+
 
 router.post('/', (request, response) => {
     const entry = request.body.entry;
