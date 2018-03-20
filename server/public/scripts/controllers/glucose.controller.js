@@ -39,6 +39,9 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
             padding: {
               top: 10
             }
+          }, 
+          gridLines: {
+            lineWidth: 3
           }
         }
       });
