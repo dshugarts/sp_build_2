@@ -18,6 +18,20 @@ router.get('/:id', (request, response) => {
     })
 });
 
+router.get('/dates/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get dates id', id);
+  const sqlText = `SELECT entry_id, id, data_date, glu_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+});
 
 
 router.post('/', (request, response) => {

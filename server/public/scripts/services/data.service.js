@@ -154,7 +154,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     console.log('TOTAL CVD SCORE = ', cvd_score);
 
     let now_data_date = new Date();
-    
+
     entryObject = {
         id: id,
         data_date: now_data_date,
