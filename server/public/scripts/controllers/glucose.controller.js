@@ -13,7 +13,7 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
 
     console.log('GCAA', self.gluScore);
 
-    
+
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
@@ -28,9 +28,17 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
         options: {
           title: {
             display: true,
-            text: 'My Glucose Readings Over Time'
+            text: 'My Glucose Readings Over Time',
+            position: 'bottom'
+          },
+          legend: {
+              position: 'bottom'
+          },
+          layout: {
+            padding: {
+              top: 10
+            }
           }
-
         }
       });
 

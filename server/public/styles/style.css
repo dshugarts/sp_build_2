@@ -8,6 +8,10 @@
   margin-right: 10px;
 }
 
+.chartHead {
+  padding: 10px;
+}
+
 #myChart {
   float: left;
 }
