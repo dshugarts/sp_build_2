@@ -35,6 +35,7 @@ self.getData(self.id);
     min: 0,
     max: 20,
     customSectors: sectors,
+    pointer: true,
     title: "My Heart Health Score",
     label: "Healthy Points Earned"
   });
