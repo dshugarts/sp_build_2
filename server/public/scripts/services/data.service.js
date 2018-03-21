@@ -9,7 +9,10 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.pScore = '';
     self.allReportDataArray = [];
     self.ageReport = '';
-
+    self.bpReport = '';
+    self.hdlReport = '';
+    self.ldlReport = '';
+    self.gluReport = '';
 
     self.postData = function(entry) {
         console.log(entry);
@@ -204,13 +207,44 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
           console.log('response All Data', data);
           self.allReportDataArray = response.data;
           console.log('ALL JOIN DATA ', self.allReportDataArray);
-          console.log('pre age report = ', self.allReportDataArray[0].category_description)
           if (data[0].age_score === 2) {
               self.ageReport = self.allReportDataArray[0].category_description;
           } else if (data[0].age_score === 0) {
               self.ageReport = self.allReportDataArray[1].category_description;
           }
+          if (data[0].bp_score === 2) {
+              self.bpReport = self.allReportDataArray[2].category_description;
+          } else if (data[0].bp_score === 1) {
+              self.bpReport = self.allReportDataArray[3].category_description;
+          } else if (data[0].bp_score === 0) {
+              self.bpReport = self.allReportDataArray[4].category_description;
+          }
+          if (data[0].hdl_score === 2) {
+            self.hdlReport = self.allReportDataArray[5].category_description;
+        } else if (data[0].hdl_score === 1) {
+            self.hdlReport = self.allReportDataArray[6].category_description;
+        } else if (data[0].hdl_score === 0) {
+            self.hdlReport = self.allReportDataArray[7].category_description;
+        }
+        if (data[0].ldl_score === 2) {
+            self.ldlReport = self.allReportDataArray[8].category_description;
+        } else if (data[0].ldl_score === 1) {
+            self.ldlReport = self.allReportDataArray[9].category_description;
+        } else if (data[0].ldl_score === 0) {
+            self.ldlReport = self.allReportDataArray[10].category_description;
+        }
+        if (data[0].glu_score === 2) {
+            self.gluReport = self.allReportDataArray[11].category_description;
+        } else if (data[0].glu_score === 1) {
+            self.gluReport = self.allReportDataArray[12].category_description;
+        } else if (data[0].glu_score === 0) {
+            self.gluReport = self.allReportDataArray[13].category_description;
+        }
           console.log('AGE REPORT = ', self.ageReport);
+          console.log('BP REPORT = ', self.bpReport);
+          console.log('HDL REPORT = ', self.hdlReport);
+          console.log('LDL REPORT = ', self.ldlReport);
+          console.log('GLU REPORT = ', self.gluReport);
         }).catch(function(error){
           console.log('Error getting data', error);
         })
