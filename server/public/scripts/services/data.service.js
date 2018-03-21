@@ -13,6 +13,10 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.hdlReport = '';
     self.ldlReport = '';
     self.gluReport = '';
+    self.waistReport = '';
+    self.historyReport = '';
+    self.activityReport = '';
+    self.nicotineReport = '';
 
     self.postData = function(entry) {
         console.log(entry);
@@ -240,11 +244,36 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         } else if (data[0].glu_score === 0) {
             self.gluReport = self.allReportDataArray[13].category_description;
         }
+        if (data[0].waist_score === 2) {
+            self.waistReport = self.allReportDataArray[14].category_description;
+        } else if (data[0].waist_score === 0) {
+            self.waistReport = self.allReportDataArray[15].category_description;
+        }
+        if (data[0].family_history_score === 2) {
+            self.historyReport = self.allReportDataArray[16].category_description;
+        } else if (data[0].family_history_score === 0) {
+            self.historyReport = self.allReportDataArray[17].category_description;
+        }
+        if (data[0].physical_activity_score === 2) {
+            self.activityReport = self.allReportDataArray[18].category_description;
+        } else if (data[0].physical_activity_score === 0) {
+            self.activityReport = self.allReportDataArray[19].category_description;
+        }
+        if (data[0].nicotine_score === 2) {
+            self.nicotineReport = self.allReportDataArray[20].category_description;
+        } else if (data[0].nicotine_score === 0) {
+            self.nicotineReport = self.allReportDataArray[21].category_description;
+        }
+
           console.log('AGE REPORT = ', self.ageReport);
           console.log('BP REPORT = ', self.bpReport);
           console.log('HDL REPORT = ', self.hdlReport);
           console.log('LDL REPORT = ', self.ldlReport);
           console.log('GLU REPORT = ', self.gluReport);
+          console.log('WAIST REPORT = ', self.waistReport);
+          console.log('HISTORY REPORT = ', self.historyReport);
+          console.log('ACTIVITY REPORT = ', self.activityReport);
+          console.log('NICOTINE REPORT = ', self.nicotineReport);
         }).catch(function(error){
           console.log('Error getting data', error);
         })

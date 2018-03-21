@@ -23,5 +23,9 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.hdlReport = DataService.hdlReport;
     self.ldlReport = DataService.ldlReport;
     self.gluReport = DataService.gluReport;
-
+    self.waistReport = DataService.waistReport;
+    self.historyReport = DataService.historyReport;
+    self.activityReport = DataService.activityReport;
+    self.nicotineReport = DataService.nicotineReport;
+    
   }]);
