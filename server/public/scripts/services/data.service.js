@@ -215,11 +215,13 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
           console.log('response All Data', data);
           self.allReportDataArray = response.data;
           console.log('ALL JOIN DATA ', self.allReportDataArray);
+
           if (data[0].age_score === 2) {
               self.ageReport = self.allReportDataArray[0].category_description;
           } else if (data[0].age_score === 0) {
               self.ageReport = self.allReportDataArray[1].category_description;
           }
+
           if (data[0].bp_score === 2) {
               self.bpReport = self.allReportDataArray[2].category_description;
           } else if (data[0].bp_score === 1) {
@@ -227,6 +229,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
           } else if (data[0].bp_score === 0) {
               self.bpReport = self.allReportDataArray[4].category_description;
           }
+
           if (data[0].hdl_score === 2) {
             self.hdlReport = self.allReportDataArray[5].category_description;
         } else if (data[0].hdl_score === 1) {
@@ -234,6 +237,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         } else if (data[0].hdl_score === 0) {
             self.hdlReport = self.allReportDataArray[7].category_description;
         }
+
         if (data[0].ldl_score === 2) {
             self.ldlReport = self.allReportDataArray[8].category_description;
         } else if (data[0].ldl_score === 1) {
@@ -241,6 +245,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         } else if (data[0].ldl_score === 0) {
             self.ldlReport = self.allReportDataArray[10].category_description;
         }
+
         if (data[0].glu_score === 2) {
             self.gluReport = self.allReportDataArray[11].category_description;
         } else if (data[0].glu_score === 1) {
@@ -248,31 +253,37 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         } else if (data[0].glu_score === 0) {
             self.gluReport = self.allReportDataArray[13].category_description;
         }
+
         if (data[0].waist_score === 2) {
             self.waistReport = self.allReportDataArray[14].category_description;
         } else if (data[0].waist_score === 0) {
             self.waistReport = self.allReportDataArray[15].category_description;
         }
+
         if (data[0].family_history_score === 2) {
             self.historyReport = self.allReportDataArray[16].category_description;
         } else if (data[0].family_history_score === 0) {
             self.historyReport = self.allReportDataArray[17].category_description;
         }
+
         if (data[0].physical_activity_score === 2) {
             self.activityReport = self.allReportDataArray[18].category_description;
         } else if (data[0].physical_activity_score === 0) {
             self.activityReport = self.allReportDataArray[19].category_description;
         }
+
         if (data[0].nicotine_score === 2) {
             self.nicotineReport = self.allReportDataArray[20].category_description;
         } else if (data[0].nicotine_score === 0) {
             self.nicotineReport = self.allReportDataArray[21].category_description;
         }
+
         if (data[0].sleep_score === 2) {
             self.sleepReport = self.allReportDataArray[22].category_description;
         } else if (data[0].sleep_score === 0) {
             self.sleepReport = self.allReportDataArray[23].category_description;
         }
+
         if (data[0].trg_value < 150) {
             self.trgReport = self.allReportDataArray[24].category_description;
         } else if (data[0].trg_value > 149 && data[0].trg_value < 201) {
@@ -354,6 +365,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         }).catch(function(error){
           console.log('Error getting data', error);
         })
+        
       } //end getAllReportData
 
 
