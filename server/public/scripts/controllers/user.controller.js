@@ -15,38 +15,29 @@ myApp.controller('UserController', ['UserService', 'DataService', function(UserS
 self.getData(self.id);
  console.log('controller', self.myScore);
   
+ const sectors = [{
+  color : "red",
+      lo : 0,
+      hi : 7
+                },{
+      color : "gold",
+      lo : 8,
+      hi : 14
+    },{
+      color : "#008000",
+      lo : 15,
+      hi : 20
+    }];
 
- var data = {
-  labels: [
-    "My Heart Health Level"
-  ],
-  datasets: [
-    {
-      data: [self.myScore, (20-self.myScore)],
-      backgroundColor: [
-        "Green",
-        "White"
-      ],
-      hoverBackgroundColor: [
-        "lightgreen",
-        "White"
-      ]
-    }]
-};
-
-var chart = new Chart(document.getElementById('doughnut-chart'), {
-  type: 'doughnut',
-  data: data,
-  options: {
-    responsive: true,
-    tooltips: {enabled: false},
-    hover: {mode: null},
-    title: {
-      display: true,
-      text: 'How Healthy is My Heart?'
-    }
-  }
-});
+  var g = new JustGage({
+    id: "gauge",
+    value: self.myScore,
+    min: 0,
+    max: 20,
+    customSectors: sectors,
+    title: "My Heart Health Score",
+    label: "Healthy Points Earned"
+  });
 
 
 }]);

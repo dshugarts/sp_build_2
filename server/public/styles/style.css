@@ -8,6 +8,15 @@
   margin-right: 10px;
 }
 
+#gauge {
+  height: 500px;
+  width: 480px;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+}
+
 .chartHead {
   padding: 10px;
 }
