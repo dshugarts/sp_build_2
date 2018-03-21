@@ -17,6 +17,9 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.historyReport = '';
     self.activityReport = '';
     self.nicotineReport = '';
+    self.sleepReport = '';
+    self.trgReport = '';
+    self.bmiReport = '';
 
     self.postData = function(entry) {
         console.log(entry);
@@ -264,6 +267,31 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         } else if (data[0].nicotine_score === 0) {
             self.nicotineReport = self.allReportDataArray[21].category_description;
         }
+        if (data[0].sleep_score === 2) {
+            self.sleepReport = self.allReportDataArray[22].category_description;
+        } else if (data[0].sleep_score === 0) {
+            self.sleepReport = self.allReportDataArray[23].category_description;
+        }
+        if (data[0].trg_value < 150) {
+            self.trgReport = self.allReportDataArray[24].category_description;
+        } else if (data[0].trg_value > 149 && data[0].trg_value < 201) {
+            self.trgReport = self.allReportDataArray[25].category_description;
+        } else if (data[0].trg_value > 200) {
+            self.trgReport = self.allReportDataArray[26].category_description;
+        }
+
+        let bmiScore = 0;
+        bmiScore = ((data[0].weight_value)/(data[0].height_value*data[0].height_value)*703);
+        bmiScoreUse = Math.round((bmiScore *10)/10);
+        console.log('BMI SCORE = ', bmiScoreUse);
+
+        if (bmiScoreUse < 25) {
+            self.bmiReport = self.allReportDataArray[27].category_description;
+        } else if (bmiScoreUse > 24.99 && bmiScoreUse < 30) {
+            self.bmiReport = self.allReportDataArray[28].category_description;
+        } else if (bmiScoreUse > 29.99) {
+            self.bmiReport = self.allReportDataArray[29].category_description;
+        }
 
           console.log('AGE REPORT = ', self.ageReport);
           console.log('BP REPORT = ', self.bpReport);
@@ -274,6 +302,9 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
           console.log('HISTORY REPORT = ', self.historyReport);
           console.log('ACTIVITY REPORT = ', self.activityReport);
           console.log('NICOTINE REPORT = ', self.nicotineReport);
+          console.log('SLEEP REPORT = ', self.sleepReport);
+          console.log('TRG REPORT = ', self.trgReport);
+          console.log('BMI REPORT = ', self.bmiReport);
         }).catch(function(error){
           console.log('Error getting data', error);
         })
