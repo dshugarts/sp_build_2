@@ -5,7 +5,6 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
     self.postdataService = PostDataService;
     self.userObject = UserService.userObject;
     self.id = UserService.userObject.id;
-    self.getChartData = PostDataService.getChartData;
     self.gluValuesArray = PostDataService.gluValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.gluScore = PostDataService.gluScore;
