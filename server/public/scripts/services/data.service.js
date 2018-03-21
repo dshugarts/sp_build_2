@@ -20,6 +20,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.sleepReport = '';
     self.trgReport = '';
     self.bmiReport = '';
+    self.hhsReport = '';
 
     self.postData = function(entry) {
         console.log(entry);
@@ -293,6 +294,51 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
             self.bmiReport = self.allReportDataArray[29].category_description;
         }
 
+        if (data[0].cvd_score === 20) {
+            self.hhsReport = self.allReportDataArray[30].category_description;
+        } else if (data[0].cvd_score === 19) {
+            self.hhsReport = self.allReportDataArray[31].category_description;
+        } else if (data[0].cvd_score === 18) {
+            self.hhsReport = self.allReportDataArray[32].category_description;
+        } else if (data[0].cvd_score === 17) {
+            self.hhsReport = self.allReportDataArray[33].category_description;
+        } else if (data[0].cvd_score === 16) {
+            self.hhsReport = self.allReportDataArray[34].category_description;
+        } else if (data[0].cvd_score === 15) {
+            self.hhsReport = self.allReportDataArray[35].category_description;
+        } else if (data[0].cvd_score === 14) {
+            self.hhsReport = self.allReportDataArray[36].category_description;
+        } else if (data[0].cvd_score === 13) {
+            self.hhsReport = self.allReportDataArray[37].category_description;
+        } else if (data[0].cvd_score === 12) {
+            self.hhsReport = self.allReportDataArray[38].category_description;
+        } else if (data[0].cvd_score === 11) {
+            self.hhsReport = self.allReportDataArray[39].category_description;
+        } else if (data[0].cvd_score === 10) {
+            self.hhsReport = self.allReportDataArray[40].category_description;
+        } else if (data[0].cvd_score === 9) {
+            self.hhsReport = self.allReportDataArray[41].category_description;
+        } else if (data[0].cvd_score === 8) {
+            self.hhsReport = self.allReportDataArray[42].category_description;
+        } else if (data[0].cvd_score === 7) {
+            self.hhsReport = self.allReportDataArray[43].category_description;
+        } else if (data[0].cvd_score === 6) {
+            self.hhsReport = self.allReportDataArray[44].category_description;
+        } else if (data[0].cvd_score === 5) {
+            self.hhsReport = self.allReportDataArray[45].category_description;
+        } else if (data[0].cvd_score === 4) {
+            self.hhsReport = self.allReportDataArray[46].category_description;
+        } else if (data[0].cvd_score === 3) {
+            self.hhsReport = self.allReportDataArray[47].category_description;
+        } else if (data[0].cvd_score === 2) {
+            self.hhsReport = self.allReportDataArray[48].category_description;
+        } else if (data[0].cvd_score === 1) {
+            self.hhsReport = self.allReportDataArray[49].category_description;
+        } else if (data[0].cvd_score === 0) {
+            self.hhsReport = self.allReportDataArray[50].category_description;
+        }
+
+          console.log('HHS REPORT = ', self.hhsReport);
           console.log('AGE REPORT = ', self.ageReport);
           console.log('BP REPORT = ', self.bpReport);
           console.log('HDL REPORT = ', self.hdlReport);

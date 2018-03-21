@@ -30,4 +30,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.sleepReport = DataService.sleepReport;
     self.trgReport = DataService.trgReport;
     self.bmiReport = DataService.bmiReport;
-  }]);
+    self.hhsReport = DataService.hhsReport;
+
+
+  }]); // end Report Controller
