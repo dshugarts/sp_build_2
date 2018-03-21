@@ -170,5 +170,20 @@ router.post('/', (request, response) => {
   })
 }); // end POST
 
+router.get('/reports/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get bp id', id);
+  const sqlText = `SELECT category_id, category_description FROM report_info`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get bp values
+
 
 module.exports = router;

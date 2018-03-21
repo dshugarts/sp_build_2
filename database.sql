@@ -35,3 +35,14 @@ CREATE TABLE data (
 	sleep_score INT,
 	cvd_score INT
 );
+
+CREATE TABLE categories (
+	category_id serial primary key,
+	category_name varchar(20)
+);
+
+CREATE TABLE report_info (
+	report_id serial primary key,
+	category_id INT REFERENCES categories ON DELETE CASCADE,
+	category_description varchar(255)
+);

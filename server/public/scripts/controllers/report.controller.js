@@ -17,6 +17,9 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.dataArray = DataService.dataArray;
     self.getData = DataService.getData;
     self.id = UserService.userObject.id;
+    self.getAllReportData = DataService.getAllReportData;
+    self.ageReport = DataService.ageReport;
+ 
 
 
 

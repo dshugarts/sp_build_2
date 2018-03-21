@@ -21,6 +21,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.bpValuesArray = [];
     self.systolicScore = [];
     self.diastolicScore = [];
+ 
 
     self.reportPage = function() {
       $location.url('/report');

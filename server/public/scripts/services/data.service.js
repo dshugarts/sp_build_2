@@ -7,6 +7,9 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.dataArray = [];
     self.myScore = '';
     self.pScore = '';
+    self.allReportDataArray = [];
+    self.ageReport = '';
+
 
     self.postData = function(entry) {
         console.log(entry);
@@ -34,6 +37,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
           self.myScore = self.dataArray[0].cvd_score;
           self.pScore = ((self.myScore/20)*100) + "%";
           console.log('DS myScore ', self.myScore);
+          self.getAllReportData(self.dataArray);
         }).catch(function(error){
           console.log('Error getting data', error);
         })
@@ -189,8 +193,28 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.postData(entryObject);
 
     } // end addEntry
+    
 
-
+    self.getAllReportData = function(data){
+        console.log('PDS', data);
+        $http({
+          method: 'GET',
+          url: `/data/reports/${data.id}`
+        }).then(function(response){
+          console.log('response All Data', data);
+          self.allReportDataArray = response.data;
+          console.log('ALL JOIN DATA ', self.allReportDataArray);
+          console.log('pre age report = ', self.allReportDataArray[0].category_description)
+          if (data[0].age_score === 2) {
+              self.ageReport = self.allReportDataArray[0].category_description;
+          } else if (data[0].age_score === 0) {
+              self.ageReport = self.allReportDataArray[1].category_description;
+          }
+          console.log('AGE REPORT = ', self.ageReport);
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getAllReportData
 
 
 
