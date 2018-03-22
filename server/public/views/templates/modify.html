@@ -125,7 +125,7 @@
 
   <div class="form-group col-md-8">
     <button ng-hide="data.editing" ng-click="vm.editData(data)" class="btn btn-primary">Update Data</button>
-    <button ng-show="data.editing" ng-click="vm.saveData(data)" class="btn btn-success">Save Data</button>
+    <button ng-show="data.editing" ng-click="vm.saveData(data, vm.newNicotine, vm.newHistory)" class="btn btn-success">Save Data</button>
     <button ng-hide="data.editing" ng-click="vm.dataView()" class="btn btn-warning">Back</button>
     <button ng-show="data.editing" ng-click="vm.cancelUpdate(data)" class="btn btn-danger">Cancel Update</button>
   </div>

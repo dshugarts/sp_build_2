@@ -201,4 +201,22 @@ router.get('/resources/:id', (request, response) => {
 }); // end get resources values
 
 
+router.put('/update/:id', (request, response) => {
+  const id = request.params.id;
+  const entry = request.body.entry;
+  console.log('get update id', id);
+  console.log('data', entry);
+  let queryText = `UPDATE data SET age_value=$2, family_history_value=$3, physical_activity_value=$4, systolic_value=$5, diastolic_value=$6, nicotine_value=$7, glu_value=$8, hdl_value=$9, ldl_value=$10, trg_value=$11, waist_value=$12, sleep_value=$13, height_value=$14, weight_value=$15, gender=$16, age_score=$17, physical_activity_score=$18, family_history_score=$19, bp_score=$20, nicotine_score=$21, glu_score=$22, hdl_score=$23, ldl_score=$24, waist_score=$25, sleep_score=$26, cvd_score=$27 WHERE entry_id=$1`;
+  pool.query(queryText, [id, entry.age_value, entry.family_history_value, entry.physical_activity_value, entry.systolic_value, entry.diastolic_value, entry.nicotine_value, entry.glu_value, entry.hdl_value, entry.ldl_value, entry.trg_value, entry.waist_value, entry.sleep_value, entry.height_value, entry.weight_value, entry.gender, entry.age_score, entry.physical_activity_score, entry.family_history_score, entry.bp_score, entry.nicotine_score, entry.glu_score, entry.hdl_score, entry.ldl_score, entry.waist_score, entry.sleep_score, entry.cvd_score])
+    .then((result) => {
+      response.sendStatus(200);
+    })
+    .catch((err) => {
+      response.sendStatus(500);
+    })
+
+
+}); // end update values
+
+
 module.exports = router;

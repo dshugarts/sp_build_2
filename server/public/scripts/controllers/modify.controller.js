@@ -1,8 +1,9 @@
-myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'DataService', function($http, $location, UserService, DataService) {
+myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'DataService', 'UpdateService', function($http, $location, UserService, DataService, UpdateService) {
     console.log('ModifyController created');
     var self = this;
     self.userService = UserService;
-    self.dataService = DataService
+    self.dataService = DataService;
+    self.updateService = UpdateService;
     self.userObject = UserService.userObject;
     self.dataArray = DataService.dataArray;
     self.newEntry = DataService.newEntry;
@@ -16,6 +17,7 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
     console.log('nicotine = ', self.newNicotine);
     console.log('gender = ', self.dataArray[0].gender);
     console.log('history = ', self.newHistory);
+    self.scoreData = UpdateService.scoreData;
 
 
     self.dataView = function() {
@@ -29,4 +31,32 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
       self.cancelUpdate = function(data){
         data.editing = false;
       }
+
+      self.saveData = function(data, nic, his){
+        console.log('PUT DATA', data, nic, his);
+        updateObject = {
+            entry_id: data.entry_id,
+            id: data.id,
+            data_date: data.data_date,
+            age_value: data.age_value,
+            family_history_value: self.newHistory,
+            physical_activity_value: data.physical_activity_value,
+            systolic_value: data.systolic_value,
+            diastolic_value: data.diastolic_value,
+            nicotine_value: self.newNicotine,
+            glu_value: data.glu_value,
+            hdl_value: data.hdl_value,
+            ldl_value: data.ldl_value,
+            trg_value: data.trg_value,
+            waist_value: data.waist_value,
+            sleep_value: data.sleep_value,
+            height_value: data.height_value,
+            weight_value: data.weight_value,
+            gender: data.gender
+        }
+        console.log('updateObject', updateObject);
+        UpdateService.scoreData(updateObject);
+      } // end saveData
+
+
   }]);
