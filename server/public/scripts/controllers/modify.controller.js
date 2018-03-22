@@ -10,6 +10,13 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
     self.id = UserService.userObject.id;
     console.log(self.id);
     self.addEntry = DataService.addEntry;
+    self.newNicotine = self.dataArray[0].nicotine_value.toString();
+    self.newHistory = self.dataArray[0].family_history_value.toString();
+    console.log('DA', self.dataArray);
+    console.log('nicotine = ', self.newNicotine);
+    console.log('gender = ', self.dataArray[0].gender);
+    console.log('history = ', self.newHistory);
+
 
     self.dataView = function() {
         $location.url('/data');
@@ -17,5 +24,9 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
 
       self.editData = function(data){
         data.editing = true;
+      }
+
+      self.cancelUpdate = function(data){
+        data.editing = false;
       }
   }]);

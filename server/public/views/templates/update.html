@@ -53,27 +53,27 @@
     <div class="form-group col-md-3">
         <label>Nicotine Use?:</label>
         <label class="radio-inline" for="nicotine">
-        <input type="radio" name "nicotine" ng-model="vm.newEntry.nicotine_value" value="false">No</label>
+        <input type="radio" name="nicotine" ng-model="vm.newEntry.nicotine_value" value="false">No</label>
         <label class="radio-inline" for="nicotine">
-        <input type="radio" name "nicotine" ng-model="vm.newEntry.nicotine_value" value="true">Yes</label>
+        <input type="radio" name="nicotine" ng-model="vm.newEntry.nicotine_value" value="true">Yes</label>
     </div>
     <div class="form-group col-md-3">
         <label>Gender:</label>
         <label class="radio-inline" for="gender">
-        <input type="radio" name "gender" ng-model="vm.newEntry.gender" value="F">F</label>
+        <input type="radio" name="gender" ng-model="vm.newEntry.gender" value="F">F</label>
         <label class="radio-inline" for="gender">
-        <input type="radio" name "gender" ng-model="vm.newEntry.gender" value="M">M</label>
+        <input type="radio" name="gender" ng-model="vm.newEntry.gender" value="M">M</label>
         </div>
     <div class="form-group col-md-6">
         <label>Was your father diagnosed with Heart Disease before age 55 and/or mother before age 65?:</label>
         <label class="radio-inline" for="history">
-        <input type="radio" name "history" ng-model="vm.newEntry.family_history_value" value="false">No</label>
+        <input type="radio" name="history" ng-model="vm.newEntry.family_history_value" value="false">No</label>
         <label class="radio-inline" for="history">
-        <input type="radio" name "history" ng-model="vm.newEntry.family_history_value" value="true">Yes</label>
+        <input type="radio" name="history" ng-model="vm.newEntry.family_history_value" value="true">Yes</label>
         </div>
       <div class="form-group col-md-8">
       <button ng-click="vm.addEntry(vm.newEntry, vm.id)" class="btn btn-success">Submit Data</button>
-      <button ng-click="vm.dataView()" class="btn btn-danger">Cancel</button>
+      <button ng-click="vm.dataView()" class="btn btn-danger">Back</button>
       </div>
       </form>
 </div>
