@@ -46,3 +46,9 @@ CREATE TABLE report_info (
 	category_id INT REFERENCES categories ON DELETE CASCADE,
 	category_description varchar(255)
 );
+
+CREATE TABLE resources (
+    resource_id serial primary key,
+    category_id INT REFERENCES categories ON DELETE CASCADE,
+    resource_info varchar(255)
+);

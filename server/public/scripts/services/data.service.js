@@ -8,6 +8,8 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.myScore = '';
     self.pScore = '';
     self.allReportDataArray = [];
+    self.allResourceDataArray = [];
+    self.resourceArray = [];
     self.ageReport = '';
     self.bpReport = '';
     self.hdlReport = '';
@@ -49,6 +51,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
           self.pScore = ((self.myScore/20)*100) + "%";
           console.log('DS myScore ', self.myScore);
           self.getAllReportData(self.dataArray);
+          self.getAllResourceData(self.dataArray);
         }).catch(function(error){
           console.log('Error getting data', error);
         })
@@ -368,6 +371,25 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         
       } //end getAllReportData
 
+      self.getAllReportData = function(data){
+        console.log('PDS', data);
+        $http({
+          method: 'GET',
+          url: `/data/resources/${data.id}`
+        }).then(function(response){
+          console.log('response All Data', data);
+          self.allResourceDataArray = response.data;
+          console.log('ALL RESOURCE DATA ', self.allResourceDataArray);
+        }).catch(function(error){
+            console.log('Error getting data', error);
+          })
+          
+          
 
+
+
+
+
+        } //end getAllResourceData
 
 }]);

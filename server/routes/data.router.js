@@ -172,7 +172,7 @@ router.post('/', (request, response) => {
 
 router.get('/reports/:id', (request, response) => {
   const id = request.params.id;
-  console.log('get bp id', id);
+  console.log('get reports id', id);
   const sqlText = `SELECT category_id, category_description FROM report_info`;
   pool.query(sqlText)
     .then(function(result) {
@@ -183,7 +183,22 @@ router.get('/reports/:id', (request, response) => {
       console.log('Error on Get:', error);
       response.sendStatus(500);
     })
-}); // end get bp values
+}); // end get reports values
+
+router.get('/resources/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get resources id', id);
+  const sqlText = `SELECT category_id, resource_info FROM resources`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get resources values
 
 
 module.exports = router;
