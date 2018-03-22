@@ -4,7 +4,7 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
     self.userService = UserService;
     self.dataService = DataService
     self.userObject = UserService.userObject;
-
+    self.dataArray = DataService.dataArray;
     self.newEntry = DataService.newEntry;
     self.entryObject = DataService.entryObject;
     self.id = UserService.userObject.id;
@@ -15,5 +15,7 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
         $location.url('/data');
       }
 
-
+      self.editData = function(data){
+        data.editing = true;
+      }
   }]);

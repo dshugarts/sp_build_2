@@ -1,19 +1,67 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
   <h2>Update Last Data Entry</h2>
-<form class="col-md-12">
+<form class="col-md-12" id="dataForm" ng-repeat="data in vm.dataArray">
   <div class="form-group col-md-6">
     <label for="height">Height (in.):</label>
+    <div ng-hide="data.editing" name="height" class="">
+        {{data.height_value}}
+    </div>
+        <input ng-show="data.editing" type="text" name="height" class="form-control" ng-model="data.height_value" placeholder="Height (in.)"/>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="weight">Weight (lbs.):</label>
+        <div ng-hide="data.editing" name="weight" class="">
+          {{data.weight_value}}
+        </div>
+          <input ng-show="data.editing" type="text" name="weight" class="form-control" ng-model="data.weight_value" placeholder="Weight (lbs.)"/>
+        </div>
+    <div class="form-group col-md-6">
+        <label for="age">Age:</label>
+        <div ng-hide="data.editing" name="age" class="">
+          {{data.age_value}}
+        </div>
+          <input ng-show="data.editing" type="text" name="age" class="form-control" ng-model="data.age_value" placeholder="Age"/>
+        </div>
+    <div class="form-group col-md-6">
+        <label for="waist">Waist Size (in.):</label>
+        <div ng-hide="data.editing" name="waist" class="">
+            {{data.waist_value}}
+        </div>
+          <input ng-show="data.editing" type="text" name="waist" class="form-control" ng-model="data.waist_value" placeholder="Waist Size (in.)"/>
+        </div>
+    <div class="form-group col-md-6">
+        <label for="systolic">Systolic Pressure:</label>
+        <div ng-hide="data.editing" name="systolic" class="">
+            {{data.systolic_value}}
+        </div>
+          <input ng-show="data.editing" type="text" name="systolic" class="form-control" ng-model="data.systolic_value" placeholder="Systolic Pressure"/>
+        </div>
+    <div class="form-group col-md-6">
+        <label for="diastolic">Diastolic Pressure:</label>
+        <div ng-hide="data.editing" name="diastolic" class="">
+            {{data.diastolic_value}}
+        </div>
+          <input ng-show="data.editing" type="text" name="diastolic" class="form-control" ng-model="data.diastolic_value" placeholder="Diastolic Pressure"/>
+        </div>
+    <div class="form-group col-md-6">
+        <label for="hdl">HDL:</label>
+        <div ng-hide="data.editing" name="hdl" class="">
+              {{data.hdl_value}}
+        </div>
+            <input ng-show="data.editing" type="text" name="hdl" class="form-control" ng-model="data.hdl_value" placeholder="HDL"/>
+        </div>
+    <div class="form-group col-md-6">
+        <label for="ldl">LDL:</label>
+        <div ng-hide="data.editing" name="ldl" class="">
+              {{data.hdl_value}}
+        </div>
+            <input ng-show="data.editing" type="text" name="ldl" class="form-control" ng-model="data.ldl_value" placeholder="LDL"/>
+        </div>
 
-
-
-
-
-
-    
-  </div>
   <div class="form-group col-md-8">
-    <button ng-click="" class="btn btn-success">Update Data</button>
+    <button ng-hide="data.editing" ng-click="vm.editData(data)" class="btn btn-primary">Update Data</button>
+    <button ng-show="data.editing" ng-click="vm.saveData(data)" class="btn btn-success">Save Data</button>
     <button ng-click="vm.dataView()" class="btn btn-danger">Cancel</button>
   </div>
   </form>
