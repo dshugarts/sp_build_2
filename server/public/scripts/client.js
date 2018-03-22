@@ -23,6 +23,10 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/update.html',
       controller: 'UpdateController as vm',
     })
+    .when('/modify', {
+      templateUrl: '/views/templates/modify.html',
+      controller: 'ModifyController as vm',
+    })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
@@ -30,6 +34,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/data', {
+      templateUrl: '/views/templates/data.html',
+      controller: 'DataController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

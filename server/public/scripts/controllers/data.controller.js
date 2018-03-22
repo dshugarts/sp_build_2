@@ -1,5 +1,5 @@
-myApp.controller('UpdateController', ['$http', '$location', 'UserService', 'DataService', function($http, $location, UserService, DataService) {
-    console.log('UpdateController created');
+myApp.controller('DataController', ['$http', '$location', 'UserService', 'DataService', function($http, $location, UserService, DataService) {
+    console.log('DataController created');
     var self = this;
     self.userService = UserService;
     self.dataService = DataService
@@ -12,9 +12,12 @@ myApp.controller('UpdateController', ['$http', '$location', 'UserService', 'Data
     self.addEntry = DataService.addEntry;
 
 
-    self.dataView = function() {
-      $location.url('/data');
+    self.newData = function(){
+        $location.url('/update');
+    }
+
+    self.updateData = function(){
+        $location.url('/modify');
     }
 
   }]);
-  

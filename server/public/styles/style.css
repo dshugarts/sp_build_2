@@ -8,6 +8,13 @@
   margin-right: 10px;
 }
 
+#dataView {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  margin-top: 8%;
+}
+
 #gauge {
   height: 500px;
   width: 480px;
