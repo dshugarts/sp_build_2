@@ -8,8 +8,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.myScore = '';
     self.pScore = '';
     self.allReportDataArray = [];
-    self.allResourceDataArray = [];
-    self.resourceArray = [];
+    self.allResourcesDataArray = [];
     self.ageReport = '';
     self.bpReport = '';
     self.hdlReport = '';
@@ -23,6 +22,19 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.trgReport = '';
     self.bmiReport = '';
     self.hhsReport = '';
+    self.bpResourceOne = '';
+    self.bpResourceTwo = '';
+    self.hdlResourceOne = '';
+    self.hdlResourceTwo = '';
+    self.ldlResourceOne = '';
+    self.ldlResourceTwo = '';
+    self.gluResourceOne = '';
+    self.gluResourceTwo = '';
+    self.sleepResourceOne = '';
+    self.nicotineResourceOne = '';
+    self.activityResourceOne = '';
+    self.waistResourceOne = '';
+
 
     self.postData = function(entry) {
         console.log(entry);
@@ -371,20 +383,82 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         
       } //end getAllReportData
 
-      self.getAllReportData = function(data){
+      self.getAllResourceData = function(data){
         console.log('PDS', data);
         $http({
           method: 'GET',
           url: `/data/resources/${data.id}`
         }).then(function(response){
           console.log('response All Data', data);
-          self.allResourceDataArray = response.data;
-          console.log('ALL RESOURCE DATA ', self.allResourceDataArray);
+          self.allResourcesDataArray = response.data;
+          console.log('ALL RESOURCE DATA ', self.allResourcesDataArray);
+
+        if (data[0].bp_score === 1) {
+            self.bpResourceOne = self.allResourcesDataArray[0].resource_info;
+        } else if (data[0].bp_score === 0) {
+            self.bpResourceTwo = self.allResourcesDataArray[1].resource_info;
+        } else {
+            self.bpResourceOne = '';
+            self.bpResourceTwo = '';
+        }
+
+        if (data[0].hdl_score === 1) {
+            self.hdlResourceOne = self.allResourcesDataArray[2].resource_info;
+        } else if (data[0].hdl_score === 0) {
+            self.hdlResourceTwo = self.allResourcesDataArray[3].resource_info;
+        } else {
+            self.hdlResourceOne = '';
+            self.hdlResourceTwo = '';
+        }
+
+        if (data[0].ldl_score === 1) {
+            self.ldlResourceOne = self.allResourcesDataArray[4].resource_info;
+        } else if (data[0].ldl_score === 0) {
+            self.ldlResourceTwo = self.allResourcesDataArray[5].resource_info;
+        } else {
+            self.ldlResourceOne = '';
+            self.ldlResourceTwo = '';
+        }
+
+        if (data[0].glu_score === 1) {
+            self.gluResourceOne = self.allResourcesDataArray[6].resource_info;
+        } else if (data[0].glu_score === 0) {
+            self.gluResourceTwo = self.allResourcesDataArray[7].resource_info;
+        } else {
+            self.gluResourceOne = '';
+            self.gluResourceTwo = '';
+        }
+
+        if (data[0].sleep_score === 0) {
+            self.sleepResourceOne = self.allResourcesDataArray[8].resource_info;
+        } else {
+            self.sleepResourceOne = '';
+        }
+
+        if (data[0].nicotine_score === 0) {
+            self.nicotineResourceOne = self.allResourcesDataArray[9].resource_info;
+        } else {
+            self.nicotineResourceOne = '';
+        }
+        
+        if (data[0].physical_activity_score === 0) {
+            self.activityResourceOne = self.allResourcesDataArray[10].resource_info;
+        } else {
+            self.activityResourceOne = '';
+        }
+
+        if (data[0].waist_score === 0) {
+            self.waistResourceOne = self.allResourcesDataArray[11].resource_info;
+        } else {
+            self.waistResourceOne = '';
+        }
+
         }).catch(function(error){
             console.log('Error getting data', error);
           })
           
-          
+        
+
 
 
 

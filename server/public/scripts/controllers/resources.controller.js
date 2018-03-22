@@ -9,9 +9,18 @@ myApp.controller('ResourcesController', ['$http', '$location', 'UserService', 'D
     self.getData = DataService.getData;
     self.id = UserService.userObject.id;
     self.getAllResourceData = DataService.getAllResourceData;
-    self.resourceArray = DataService.resourceArray;
-
-
+    self.bpResourceOne = DataService.bpResourceOne;
+    self.bpResourceTwo = DataService.bpResourceTwo;
+    self.hdlResourceOne = DataService.hdlResourceOne;
+    self.hdlResourceTwo = DataService.hdlResourceTwo;
+    self.ldlResourceOne = DataService.ldlResourceOne;
+    self.ldlResourceTwo = DataService.ldlResourceTwo;
+    self.gluResourceOne = DataService.gluResourceOne;
+    self.gluResourceTwo = DataService.gluResourceTwo;
+    self.sleepResourceOne = DataService.sleepResourceOne;
+    self.nicotineResourceOne = DataService.nicotineResourceOne;
+    self.activityResourceOne = DataService.activityResourceOne;
+    self.waistResourceOne = DataService.waistResourceOne;
 
 
   }]);
