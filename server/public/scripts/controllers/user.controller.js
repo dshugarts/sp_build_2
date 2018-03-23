@@ -18,14 +18,14 @@ self.getData(self.id);
  const sectors = [{
   color : "red",
       lo : 0,
-      hi : 7
+      hi : 6.9
                 },{
       color : "gold",
       lo : 8,
       hi : 14
     },{
-      color : "#008000",
-      lo : 15,
+      color : "green",
+      lo : 14.9,
       hi : 20
     }];
 
@@ -41,9 +41,6 @@ self.getData(self.id);
       bottomlength: 50,
       bottomwidth: 8,
       color: 'black',
-      stroke: '#ffffff',
-      stroke_width: 3,
-      stroke_linecap: 'round'
     },
     gaugeWidthScale: 0.5,
     title: "My Heart Health Score",

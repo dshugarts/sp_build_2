@@ -45,7 +45,9 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
             url: '/data',
             data: {entry: entry}
         }).then(function (response) {
-            console.log(response);
+            console.log('post post', response, entry.id);
+            self.getData(entry.id);
+        }).then(function(response) {
             $location.url('/data');
             self.newEntry = {};
         }).catch(function (error) {

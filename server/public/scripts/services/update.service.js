@@ -1,6 +1,8 @@
-myApp.service('UpdateService', ['$http', '$location', function($http, $location){
+myApp.service('UpdateService', ['$http', '$location', 'DataService', function($http, $location, DataService){
     console.log('UpdateService Loaded');
     var self = this;
+    self.dataService = DataService;
+    self.getData = DataService.getData;
     self.newEntry = {};
     self.entryObject = {};
 
@@ -15,16 +17,14 @@ myApp.service('UpdateService', ['$http', '$location', function($http, $location)
             data: {entry: entry}
         }).then(function(response) {
             console.log('Update response = ', response);
+            self.getData(entry.id);
+        }).then(function(response) {
             $location.url('/data');
             self.newEntry = {};
         }).catch(function (error) {
             console.log('put error', error);
         })
     } // end putData
-
-
-
-
 
 
     self.scoreData = function(newEntry) {
