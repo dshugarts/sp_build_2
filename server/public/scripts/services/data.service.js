@@ -35,7 +35,9 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.activityResourceOne = '';
     self.waistResourceOne = '';
 
-
+    self.letPass = function() {
+        $location.url('/user');
+    }
     self.postData = function(entry) {
         console.log(entry);
         $http({

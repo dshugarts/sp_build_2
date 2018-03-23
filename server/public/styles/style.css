@@ -8,6 +8,12 @@
   margin-right: 10px;
 }
 
+#disclaimer {
+  display: block;
+  text-align: left;
+  padding: 14px 16px;
+  margin-top: 10px;
+}
 #dataView {
   display: block;
   text-align: center;

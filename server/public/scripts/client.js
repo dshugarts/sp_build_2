@@ -40,6 +40,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/new', {
+      templateUrl: '/views/templates/new.html',
+      controller: 'NewController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/data', {
       templateUrl: '/views/templates/data.html',
       controller: 'DataController as vm',
