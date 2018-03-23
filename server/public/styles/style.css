@@ -73,7 +73,7 @@ body, html {
 .instructions {
   background-color: darkred;
   color: white;
-  padding: 15px;
+  padding: 2px;
 }
 
 #entryForm {
@@ -112,6 +112,7 @@ body, html {
   background-color: #333333;
   width: 100%;
   border-radius: 0px;
+  height: 3px;
 }
 
 ul {
