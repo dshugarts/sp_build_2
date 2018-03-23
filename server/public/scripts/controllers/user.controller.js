@@ -36,6 +36,16 @@ self.getData(self.id);
     max: 20,
     customSectors: sectors,
     pointer: true,
+    pointerOptions: {
+      toplength: -12,
+      bottomlength: 50,
+      bottomwidth: 8,
+      color: 'black',
+      stroke: '#ffffff',
+      stroke_width: 3,
+      stroke_linecap: 'round'
+    },
+    gaugeWidthScale: 0.5,
     title: "My Heart Health Score",
     label: "Healthy Points Earned"
   });
