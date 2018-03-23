@@ -54,6 +54,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getaGluData
 
       self.getHdlData = function(id){
+        self.hdlScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -63,10 +65,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.hdlValuesArray = response.data;
           for (item of self.hdlValuesArray) {
           self.hdlScore.push(item.hdl_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.hdlValuesArray);
           console.log('hdl axis', self.hdlScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/hdl');
         }).catch(function(error){
@@ -75,6 +77,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getHDLData
 
       self.getLdlData = function(id){
+        self.ldlScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -84,10 +88,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.ldlValuesArray = response.data;
           for (item of self.ldlValuesArray) {
           self.ldlScore.push(item.ldl_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.ldlValuesArray);
           console.log('ldl axis', self.ldlScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/ldl');
         }).catch(function(error){
@@ -96,6 +100,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getLDLData
 
       self.getTrgData = function(id){
+        self.trgScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -105,10 +111,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.trgValuesArray = response.data;
           for (item of self.trgValuesArray) {
           self.trgScore.push(item.trg_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.trgValuesArray);
           console.log('trg axis', self.trgScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/trg');
         }).catch(function(error){
@@ -117,6 +123,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getTRGData
 
       self.getHeartHealthData = function(id){
+        self.heartHealthScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -126,10 +134,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.heartHealthValuesArray = response.data;
           for (item of self.heartHealthValuesArray) {
           self.heartHealthScore.push(item.cvd_score);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.heartHealthValuesArray);
           console.log('heart health axis', self.heartHealthScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/hearthealth');
         }).catch(function(error){
@@ -138,6 +146,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getHeartHealthData
 
       self.getWaistData = function(id){
+        self.waistScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -147,10 +157,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.waistValuesArray = response.data;
           for (item of self.waistValuesArray) {
           self.waistScore.push(item.waist_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.waistValuesArray);
           console.log('waist axis', self.waistScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/waist');
         }).catch(function(error){
@@ -159,6 +169,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getWaistData
 
       self.getSleepData = function(id){
+        self.sleepScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -168,10 +180,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.sleepValuesArray = response.data;
           for (item of self.sleepValuesArray) {
           self.sleepScore.push(item.sleep_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.sleepValuesArray);
           console.log('sleep axis', self.sleepScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/sleep');
         }).catch(function(error){
@@ -180,6 +192,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getSleepData
 
       self.getWeightData = function(id){
+        self.weightScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -189,10 +203,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.weightValuesArray = response.data;
           for (item of self.weightValuesArray) {
           self.weightScore.push(item.weight_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.weightValuesArray);
           console.log('weight axis', self.weightScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/weight');
         }).catch(function(error){
@@ -201,6 +215,9 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       } //end getWeightData
 
       self.getBpData = function(id){
+        self.systolicScore = [];
+        self.diastolicScore = [];
+        self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -211,16 +228,16 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           for (item of self.bpValuesArray) {
           self.systolicScore.push(item.systolic_value);
           self.diastolicScore.push(item.diastolic_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.bpValuesArray);
           console.log('systolic axis', self.systolicScore);
           console.log('diastolic axis', self.diastolicScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/bp');
         }).catch(function(error){
           console.log('Error getting data', error);
         })
       } //end getBPData
-      
+
 }]);

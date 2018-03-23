@@ -36,7 +36,7 @@ router.get('/glu/:id', (request, response) => {
 router.get('/hdl/:id', (request, response) => {
   const id = request.params.id;
   console.log('get hdl id', id);
-  const sqlText = `SELECT entry_id, id, hdl_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, hdl_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -51,7 +51,7 @@ router.get('/hdl/:id', (request, response) => {
 router.get('/ldl/:id', (request, response) => {
   const id = request.params.id;
   console.log('get ldl id', id);
-  const sqlText = `SELECT entry_id, id, ldl_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, ldl_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -66,7 +66,7 @@ router.get('/ldl/:id', (request, response) => {
 router.get('/trg/:id', (request, response) => {
   const id = request.params.id;
   console.log('get trg id', id);
-  const sqlText = `SELECT entry_id, id, trg_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, trg_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -81,7 +81,7 @@ router.get('/trg/:id', (request, response) => {
 router.get('/hearthealth/:id', (request, response) => {
   const id = request.params.id;
   console.log('get hearthealth id', id);
-  const sqlText = `SELECT entry_id, id, cvd_score FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, cvd_score FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -96,7 +96,7 @@ router.get('/hearthealth/:id', (request, response) => {
 router.get('/waist/:id', (request, response) => {
   const id = request.params.id;
   console.log('get waist id', id);
-  const sqlText = `SELECT entry_id, id, waist_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, waist_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -111,7 +111,7 @@ router.get('/waist/:id', (request, response) => {
 router.get('/sleep/:id', (request, response) => {
   const id = request.params.id;
   console.log('get sleep id', id);
-  const sqlText = `SELECT entry_id, id, sleep_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, sleep_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -126,7 +126,7 @@ router.get('/sleep/:id', (request, response) => {
 router.get('/weight/:id', (request, response) => {
   const id = request.params.id;
   console.log('get weight id', id);
-  const sqlText = `SELECT entry_id, id, weight_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, weight_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -141,7 +141,7 @@ router.get('/weight/:id', (request, response) => {
 router.get('/bp/:id', (request, response) => {
   const id = request.params.id;
   console.log('get bp id', id);
-  const sqlText = `SELECT entry_id, id, systolic_value, diastolic_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, systolic_value, diastolic_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);
@@ -152,22 +152,6 @@ router.get('/bp/:id', (request, response) => {
       response.sendStatus(500);
     })
 }); // end get bp values
-
-router.get('/dates/:id', (request, response) => {
-  const id = request.params.id;
-  console.log('get dates id', id);
-  const sqlText = `SELECT entry_id, id, data_date FROM data WHERE id=${id} ORDER BY entry_id`;
-  pool.query(sqlText)
-    .then(function(result) {
-      console.log('Get result:', result);
-      response.send(result.rows);
-    })
-    .catch(function(error){
-      console.log('Error on Get:', error);
-      response.sendStatus(500);
-    })
-}); // end get dates values
-
 
 router.post('/', (request, response) => {
     const entry = request.body.entry;
