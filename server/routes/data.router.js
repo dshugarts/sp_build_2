@@ -21,7 +21,7 @@ router.get('/:id', (request, response) => {
 router.get('/glu/:id', (request, response) => {
   const id = request.params.id;
   console.log('get glu id', id);
-  const sqlText = `SELECT entry_id, id, glu_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  const sqlText = `SELECT entry_id, id, data_date, glu_value FROM data WHERE id=${id} ORDER BY entry_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);

@@ -13,6 +13,7 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
 
 
     console.log('GCAA', self.gluScore);
+    console.log('DAA', self.dates);
 
 
     new Chart(document.getElementById("line-chart"), {

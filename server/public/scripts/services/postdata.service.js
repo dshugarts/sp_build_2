@@ -31,6 +31,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
 
 
     self.getGluData = function(id){
+      self.gluScore = [];
+      self.dates = [];
         console.log('PDS', id);
         $http({
           method: 'GET',
@@ -40,10 +42,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           self.gluValuesArray = response.data;
           for (item of self.gluValuesArray) {
           self.gluScore.push(item.glu_value);
+          self.dates.push(item.data_date);
           }
           console.log('PDS myScore ', self.gluValuesArray);
           console.log('glu axis', self.gluScore);
-          self.getDates(id);
         }).then(function(response) {
           $location.url('/glucose');
         }).catch(function(error){
@@ -220,26 +222,5 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           console.log('Error getting data', error);
         })
       } //end getBPData
-
-      self.getDates = function(id){
-        console.log('PDS', id);
-        $http({
-          method: 'GET',
-          url: `/data/dates/${id}`
-        }).then(function(response){
-          console.log('response', response.data);
-          self.dateArray = response.data;
-          for (item of self.dateArray) {
-          self.dates.push(item.data_date);
-          }
-          console.log('PDS myScore ', self.dateArray);
-          console.log('date axis', self.dates);
-        }).then(function(response) {
-          console.log('dates complete');
-        }).catch(function(error){
-          console.log('Error getting data', error);
-        })
-      } //end getaGluData
-  
-
+      
 }]);
