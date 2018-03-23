@@ -8,7 +8,7 @@ myApp.controller('SleepController', ['$http', '$location', 'UserService', 'PostD
     self.sleepValuesArray = PostDataService.sleepValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.sleepScore = PostDataService.sleepScore;
-  
+    self.dates = PostDataService.dates;
 
 
     console.log('GCAA', self.sleepScore);
@@ -17,9 +17,9 @@ myApp.controller('SleepController', ['$http', '$location', 'UserService', 'PostD
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.sleepScore[0], self.sleepScore[1], self.sleepScore[2], self.sleepScore[3], self.sleepScore[4]],
+              data: self.sleepScore,
               label: "Sleep (hrs/night)",
               borderColor: "crimson",
               fill: false

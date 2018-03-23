@@ -8,7 +8,7 @@ myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDat
     self.hdlValuesArray = PostDataService.hdlValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.hdlScore = PostDataService.hdlScore;
-  
+    self.dates = PostDataService.dates;
 
 
     console.log('HDLCAA', self.hdlScore);
@@ -17,9 +17,9 @@ myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDat
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.hdlScore[0], self.hdlScore[1], self.hdlScore[2], self.hdlScore[3], self.hdlScore[4]],
+              data: self.hdlScore,
               label: "HDL",
               borderColor: "crimson",
               fill: false

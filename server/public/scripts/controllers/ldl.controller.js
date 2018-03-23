@@ -8,7 +8,7 @@ myApp.controller('LDLController', ['$http', '$location', 'UserService', 'PostDat
     self.ldlValuesArray = PostDataService.ldlValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.ldlScore = PostDataService.ldlScore;
-  
+    self.dates = PostDataService.dates;
 
 
     console.log('GCAA', self.ldlScore);
@@ -17,9 +17,9 @@ myApp.controller('LDLController', ['$http', '$location', 'UserService', 'PostDat
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.ldlScore[0], self.ldlScore[1], self.ldlScore[2], self.ldlScore[3], self.ldlScore[4]],
+              data: self.ldlScore,
               label: "LDL",
               borderColor: "crimson",
               fill: false

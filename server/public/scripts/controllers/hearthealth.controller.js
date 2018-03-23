@@ -8,17 +8,17 @@ myApp.controller('HeartHealthController', ['$http', '$location', 'UserService', 
     self.heartHealthValuesArray = PostDataService.heartHealthValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.heartHealthScore = PostDataService.heartHealthScore;
-  
+    self.dates = PostDataService.dates;
 
 
-    console.log('GCAA', self.heartHealthScore);
+    console.log('GCAA', self.dates);
 
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.heartHealthScore[0], self.heartHealthScore[1], self.heartHealthScore[2], self.heartHealthScore[3], self.heartHealthScore[4]],
+              data: self.heartHealthScore,
               label: "Heart Health Score",
               borderColor: "crimson",
               fill: false

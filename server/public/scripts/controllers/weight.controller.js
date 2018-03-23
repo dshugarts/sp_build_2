@@ -9,7 +9,7 @@ myApp.controller('WeightController', ['$http', '$location', 'UserService', 'Post
     self.weightValuesArray = PostDataService.weightValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.weightScore = PostDataService.weightScore;
-  
+    self.dates = PostDataService.dates;
 
 
     console.log('GCAA', self.weightScore);
@@ -18,9 +18,9 @@ myApp.controller('WeightController', ['$http', '$location', 'UserService', 'Post
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.weightScore[0], self.weightScore[1], self.weightScore[2], self.weightScore[3], self.weightScore[4]],
+              data: self.weightScore,
               label: "Weight (lbs.)",
               borderColor: "crimson",
               fill: false

@@ -21,7 +21,9 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.bpValuesArray = [];
     self.systolicScore = [];
     self.diastolicScore = [];
- 
+    self.dateArray = [];
+    self.dates = [];
+
 
     self.reportPage = function() {
       $location.url('/report');
@@ -41,6 +43,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.gluValuesArray);
           console.log('glu axis', self.gluScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/glucose');
         }).catch(function(error){
@@ -61,6 +64,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.hdlValuesArray);
           console.log('hdl axis', self.hdlScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/hdl');
         }).catch(function(error){
@@ -81,6 +85,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.ldlValuesArray);
           console.log('ldl axis', self.ldlScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/ldl');
         }).catch(function(error){
@@ -101,6 +106,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.trgValuesArray);
           console.log('trg axis', self.trgScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/trg');
         }).catch(function(error){
@@ -121,6 +127,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.heartHealthValuesArray);
           console.log('heart health axis', self.heartHealthScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/hearthealth');
         }).catch(function(error){
@@ -141,6 +148,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.waistValuesArray);
           console.log('waist axis', self.waistScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/waist');
         }).catch(function(error){
@@ -161,6 +169,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.sleepValuesArray);
           console.log('sleep axis', self.sleepScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/sleep');
         }).catch(function(error){
@@ -181,6 +190,7 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           }
           console.log('PDS myScore ', self.weightValuesArray);
           console.log('weight axis', self.weightScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/weight');
         }).catch(function(error){
@@ -203,15 +213,33 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           console.log('PDS myScore ', self.bpValuesArray);
           console.log('systolic axis', self.systolicScore);
           console.log('diastolic axis', self.diastolicScore);
+          self.getDates(id);
         }).then(function(response) {
           $location.url('/bp');
         }).catch(function(error){
           console.log('Error getting data', error);
         })
       } //end getBPData
-    
-    self.getChartData = function(id) {
-      console.log('hi');
-    }
+
+      self.getDates = function(id){
+        console.log('PDS', id);
+        $http({
+          method: 'GET',
+          url: `/data/dates/${id}`
+        }).then(function(response){
+          console.log('response', response.data);
+          self.dateArray = response.data;
+          for (item of self.dateArray) {
+          self.dates.push(item.data_date);
+          }
+          console.log('PDS myScore ', self.dateArray);
+          console.log('date axis', self.dates);
+        }).then(function(response) {
+          console.log('dates complete');
+        }).catch(function(error){
+          console.log('Error getting data', error);
+        })
+      } //end getaGluData
+  
 
 }]);

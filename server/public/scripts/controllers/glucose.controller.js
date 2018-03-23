@@ -8,6 +8,7 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
     self.gluValuesArray = PostDataService.gluValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.gluScore = PostDataService.gluScore;
+    self.dates = PostDataService.dates;
  
 
 
@@ -17,9 +18,9 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.gluScore[0], self.gluScore[1], self.gluScore[2], self.gluScore[3], self.gluScore[4]],
+              data: self.gluScore,
               label: "Glucose",
               borderColor: "crimson",
               fill: false

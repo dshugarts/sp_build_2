@@ -9,7 +9,7 @@ myApp.controller('TRGController', ['$http', '$location', 'UserService', 'PostDat
     self.trgValuesArray = PostDataService.trgValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.trgScore = PostDataService.trgScore;
-  
+    self.dates = PostDataService.dates;
 
 
     console.log('GCAA', self.trgScore);
@@ -18,9 +18,9 @@ myApp.controller('TRGController', ['$http', '$location', 'UserService', 'PostDat
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.trgScore[0], self.trgScore[1], self.trgScore[2], self.trgScore[3], self.trgScore[4]],
+              data: self.trgScore,
               label: "Triglycerides",
               borderColor: "crimson",
               fill: false

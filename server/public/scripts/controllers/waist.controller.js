@@ -8,7 +8,7 @@ myApp.controller('WaistController', ['$http', '$location', 'UserService', 'PostD
     self.waistValuesArray = PostDataService.waistValuesArray;
     self.reportPage = PostDataService.reportPage;
     self.waistScore = PostDataService.waistScore;
-  
+    self.dates = PostDataService.dates;
 
 
     console.log('GCAA', self.waistScore);
@@ -17,9 +17,9 @@ myApp.controller('WaistController', ['$http', '$location', 'UserService', 'PostD
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.waistScore[0], self.waistScore[1], self.waistScore[2], self.waistScore[3], self.waistScore[4]],
+              data: self.waistScore,
               label: "Waist Size (in.)",
               borderColor: "crimson",
               fill: false

@@ -9,7 +9,7 @@ myApp.controller('BPController', ['$http', '$location', 'UserService', 'PostData
     self.reportPage = PostDataService.reportPage;
     self.systolicScore = PostDataService.systolicScore;
     self.diastolicScore = PostDataService.diastolicScore;
-  
+    self.dates = PostDataService.dates;
 
 
     console.log('GCAA', self.systolicScore);
@@ -19,14 +19,14 @@ myApp.controller('BPController', ['$http', '$location', 'UserService', 'PostData
     new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
-          labels: [1, 2, 3, 4, 5],
+          labels: self.dates,
           datasets: [{ 
-              data: [self.systolicScore[0], self.systolicScore[1], self.systolicScore[2], self.systolicScore[3], self.systolicScore[4]],
+              data: self.systolicScore,
               label: "Systolic Pressure",
               borderColor: "crimson",
               fill: false
             }, { 
-              data: [self.diastolicScore[0], self.diastolicScore[1], self.diastolicScore[2], self.diastolicScore[3], self.diastolicScore[4]],
+              data: self.diastolicScore,
               label: "Diastolic Pressure",
               borderColor: "blue",
               fill: false
