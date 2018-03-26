@@ -169,6 +169,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/bmi', {
+      templateUrl: '/views/charts/bmi.html',
+      controller: 'BMIController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/sleep', {
       templateUrl: '/views/charts/sleep.html',
       controller: 'SleepController as vm',

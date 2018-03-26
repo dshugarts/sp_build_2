@@ -25,6 +25,11 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.diastolicScore = [];
     self.dateArray = [];
     self.dates = [];
+    self.bmiValuesArray = [];
+    self.bmiScoreArray = [];
+    self.bmiScore = '';
+    self.bmiScoreUse = '';
+ 
 
 
     self.reportPage = function() {
@@ -77,6 +82,33 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
             console.log('Error getting data', error);
           })
         } //end getActivityData
+
+        self.getbmiData = function(id){
+          self.bmiScore = '';
+          self.dates = [];
+            console.log('PDS', id);
+            $http({
+              method: 'GET',
+              url: `/data/bmi/${id}`
+            }).then(function(response){
+              console.log('response', response.data);
+              self.bmiValuesArray = response.data;
+              for (item of self.bmiValuesArray) {
+                self.bmiScore = 0;
+                self.bmiScore += ((item.weight_value)/(item.height_value*item.height_value)*703);
+                self.bmiScoreUse = Math.round((self.bmiScore *10)/10);
+                console.log('BMI SCORE = ', bmiScoreUse); 
+              self.bmiScoreArray.push(self.bmiScoreUse);
+              self.dates.push(item.data_date);
+              }
+              console.log('PDS activity array ', self.bmiValuesArray);
+              console.log('bmi axis', self.bmiScore);
+            }).then(function(response) {
+              $location.url('/bmi');
+            }).catch(function(error){
+              console.log('Error getting data', error);
+            })
+          } //end getbmiData
 
       self.getHdlData = function(id){
         self.hdlScore = [];

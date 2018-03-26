@@ -34,6 +34,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.nicotineResourceOne = '';
     self.activityResourceOne = '';
     self.waistResourceOne = '';
+    self.mybmi = '';
 
     self.letPass = function() {
         $location.url('/user');
@@ -315,6 +316,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         bmiScore = ((data[0].weight_value)/(data[0].height_value*data[0].height_value)*703);
         bmiScoreUse = Math.round((bmiScore *10)/10);
         console.log('BMI SCORE = ', bmiScoreUse);
+        self.mybmi = bmiScoreUse;
 
         if (bmiScoreUse < 25) {
             self.bmiReport = self.allReportDataArray[27].category_description;

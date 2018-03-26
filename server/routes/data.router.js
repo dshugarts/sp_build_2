@@ -33,6 +33,21 @@ router.get('/glu/:id', (request, response) => {
     })
 }); // end get glu values
 
+router.get('/bmi/:id', (request, response) => {
+  const id = request.params.id;
+  console.log('get bmi id', id);
+  const sqlText = `SELECT entry_id, id, data_date, weight_value, height_value FROM data WHERE id=${id} ORDER BY entry_id`;
+  pool.query(sqlText)
+    .then(function(result) {
+      console.log('Get result:', result);
+      response.send(result.rows);
+    })
+    .catch(function(error){
+      console.log('Error on Get:', error);
+      response.sendStatus(500);
+    })
+}); // end get bmi values
+
 router.get('/activity/:id', (request, response) => {
   const id = request.params.id;
   console.log('get activity id', id);

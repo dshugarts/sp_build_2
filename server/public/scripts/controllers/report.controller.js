@@ -14,6 +14,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.getWeightData = PostDataService.getWeightData;
     self.getActivityData = PostDataService.getActivityData;
     self.getBpData = PostDataService.getBpData;
+    self.getbmiData = PostDataService.getbmiData;
     self.userObject = UserService.userObject;
     self.dataArray = DataService.dataArray;
     self.getData = DataService.getData;
@@ -32,6 +33,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.trgReport = DataService.trgReport;
     self.bmiReport = DataService.bmiReport;
     self.hhsReport = DataService.hhsReport;
+    self.mybmi = DataService.mybmi;
 
 
   }]); // end Report Controller
