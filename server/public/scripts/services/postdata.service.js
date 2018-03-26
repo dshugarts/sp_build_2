@@ -4,6 +4,8 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.chartValuesArray = [];
     self.gluValuesArray = [];
     self.gluScore = [];
+    self.activityValuesArray = [];
+    self.activityScore = [];
     self.hdlValuesArray = [];
     self.hdlScore = [];
     self.ldlValuesArray = [];
@@ -52,6 +54,29 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
           console.log('Error getting data', error);
         })
       } //end getaGluData
+
+      self.getActivityData = function(id){
+        self.ActivityScore = [];
+        self.dates = [];
+          console.log('PDS', id);
+          $http({
+            method: 'GET',
+            url: `/data/activity/${id}`
+          }).then(function(response){
+            console.log('response', response.data);
+            self.activityValuesArray = response.data;
+            for (item of self.activityValuesArray) {
+            self.activityScore.push(item.physical_activity_value);
+            self.dates.push(item.data_date);
+            }
+            console.log('PDS activity array ', self.activityValuesArray);
+            console.log('activity axis', self.activityScore);
+          }).then(function(response) {
+            $location.url('/activity');
+          }).catch(function(error){
+            console.log('Error getting data', error);
+          })
+        } //end getActivityData
 
       self.getHdlData = function(id){
         self.hdlScore = [];

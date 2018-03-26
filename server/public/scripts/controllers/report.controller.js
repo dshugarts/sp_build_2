@@ -12,6 +12,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.getWaistData = PostDataService.getWaistData;
     self.getSleepData = PostDataService.getSleepData;
     self.getWeightData = PostDataService.getWeightData;
+    self.getActivityData = PostDataService.getActivityData;
     self.getBpData = PostDataService.getBpData;
     self.userObject = UserService.userObject;
     self.dataArray = DataService.dataArray;

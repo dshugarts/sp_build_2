@@ -160,6 +160,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/activity', {
+      templateUrl: '/views/charts/activity.html',
+      controller: 'ActivityController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/sleep', {
       templateUrl: '/views/charts/sleep.html',
       controller: 'SleepController as vm',
