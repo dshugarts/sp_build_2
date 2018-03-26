@@ -29,7 +29,6 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
     self.bmiScoreArray = [];
     self.bmiScore = '';
     self.bmiScoreUse = '';
- 
 
 
     self.reportPage = function() {

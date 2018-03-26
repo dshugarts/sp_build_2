@@ -34,6 +34,17 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.bmiReport = DataService.bmiReport;
     self.hhsReport = DataService.hhsReport;
     self.mybmi = DataService.mybmi;
-
+    self.sleepRisk = DataService.sleepRisk;
+    self.trgRisk = DataService.trgRisk;
+    self.bmiRisk = DataService.bmiRisk;
+    self.ageRisk = DataService.ageRisk;
+    self.bpRisk = DataService.bpRisk;
+    self.ldlRisk = DataService.ldlRisk;
+    self.hdlRisk = DataService.hdlRisk;
+    self.gluRisk = DataService.gluRisk;
+    self.waistRisk = DataService.waistRisk;
+    self.activityRisk = DataService.activityRisk;
+    self.historyRisk = DataService.historyRisk;
+    self.nicotineRisk = DataService.nicotineRisk;
 
   }]); // end Report Controller

@@ -35,6 +35,18 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.activityResourceOne = '';
     self.waistResourceOne = '';
     self.mybmi = '';
+    self.sleepRisk = '';
+    self.trgRisk = '';
+    self.bmiRisk = '';
+    self.ageRisk = '';
+    self.bpRisk = '';
+    self.ldlRisk = '';
+    self.hdlRisk = '';
+    self.gluRisk = '';
+    self.waistRisk = '';
+    self.nicotineRisk = '';
+    self.historyRisk = '';
+    self.activityRisk = '';
 
     self.letPass = function() {
         $location.url('/user');
@@ -238,78 +250,105 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
 
           if (data[0].age_score === 2) {
               self.ageReport = self.allReportDataArray[0].category_description;
+              self.ageRisk = 'Low Risk Value';
           } else if (data[0].age_score === 0) {
               self.ageReport = self.allReportDataArray[1].category_description;
+              self.ageRisk = 'High Risk Value';
           }
 
           if (data[0].bp_score === 2) {
               self.bpReport = self.allReportDataArray[2].category_description;
+              self.bpRisk = 'Low Risk Value';
           } else if (data[0].bp_score === 1) {
               self.bpReport = self.allReportDataArray[3].category_description;
+              self.bpRisk = 'Moderate Risk Value';
           } else if (data[0].bp_score === 0) {
               self.bpReport = self.allReportDataArray[4].category_description;
+              self.bpRisk = 'High Risk Value';
           }
 
           if (data[0].hdl_score === 2) {
             self.hdlReport = self.allReportDataArray[5].category_description;
+            self.hdlRisk = 'Low Risk Value';
         } else if (data[0].hdl_score === 1) {
             self.hdlReport = self.allReportDataArray[6].category_description;
+            self.hdlRisk = 'Moderate Risk Value';
         } else if (data[0].hdl_score === 0) {
             self.hdlReport = self.allReportDataArray[7].category_description;
+            self.hdlRisk = 'High Risk Value';
         }
 
         if (data[0].ldl_score === 2) {
             self.ldlReport = self.allReportDataArray[8].category_description;
+            self.ldlRisk = 'Low Risk Value';
         } else if (data[0].ldl_score === 1) {
             self.ldlReport = self.allReportDataArray[9].category_description;
+            self.ldlRisk = 'Moderate Risk Value';
         } else if (data[0].ldl_score === 0) {
             self.ldlReport = self.allReportDataArray[10].category_description;
+            self.ldlRisk = 'High Risk Value';
         }
 
         if (data[0].glu_score === 2) {
             self.gluReport = self.allReportDataArray[11].category_description;
+            self.gluRisk = 'Low Risk Value';
         } else if (data[0].glu_score === 1) {
             self.gluReport = self.allReportDataArray[12].category_description;
+            self.gluRisk = 'Moderate Risk Value';
         } else if (data[0].glu_score === 0) {
             self.gluReport = self.allReportDataArray[13].category_description;
+            self.gluRisk = 'High Risk Value';
         }
 
         if (data[0].waist_score === 2) {
             self.waistReport = self.allReportDataArray[14].category_description;
+            self.waistRisk = 'Low Risk Value';
         } else if (data[0].waist_score === 0) {
             self.waistReport = self.allReportDataArray[15].category_description;
+            self.waistRisk = 'High Risk Value';
         }
 
         if (data[0].family_history_score === 2) {
             self.historyReport = self.allReportDataArray[16].category_description;
+            self.historyRisk = 'Low Risk Value';
         } else if (data[0].family_history_score === 0) {
             self.historyReport = self.allReportDataArray[17].category_description;
+            self.historyRisk = 'High Risk Value';
         }
 
         if (data[0].physical_activity_score === 2) {
             self.activityReport = self.allReportDataArray[18].category_description;
+            self.activityRisk = 'Low Risk Value';
         } else if (data[0].physical_activity_score === 0) {
             self.activityReport = self.allReportDataArray[19].category_description;
+            self.activityRisk = 'High Risk Value';
         }
 
         if (data[0].nicotine_score === 2) {
             self.nicotineReport = self.allReportDataArray[20].category_description;
+            self.nicotineRisk = 'Low Risk Value';
         } else if (data[0].nicotine_score === 0) {
             self.nicotineReport = self.allReportDataArray[21].category_description;
+            self.nicotineRisk = 'High Risk Value';
         }
 
         if (data[0].sleep_score === 2) {
             self.sleepReport = self.allReportDataArray[22].category_description;
+            self.sleepRisk = 'Low Risk Value';
         } else if (data[0].sleep_score === 0) {
             self.sleepReport = self.allReportDataArray[23].category_description;
+            self.sleepRisk = 'High Risk Value';
         }
 
         if (data[0].trg_value < 150) {
             self.trgReport = self.allReportDataArray[24].category_description;
+            self.trgRisk = 'Optimal Value';
         } else if (data[0].trg_value > 149 && data[0].trg_value < 201) {
             self.trgReport = self.allReportDataArray[25].category_description;
+            self.trgRisk = 'Moderate Value';
         } else if (data[0].trg_value > 200) {
             self.trgReport = self.allReportDataArray[26].category_description;
+            self.trgRisk = 'High Value';
         }
 
         let bmiScore = 0;
@@ -320,10 +359,13 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
 
         if (bmiScoreUse < 25) {
             self.bmiReport = self.allReportDataArray[27].category_description;
+            self.bmiRisk = 'Optimal Value';
         } else if (bmiScoreUse > 24.99 && bmiScoreUse < 30) {
             self.bmiReport = self.allReportDataArray[28].category_description;
+            self.bmiRisk = 'Moderate Value';
         } else if (bmiScoreUse > 29.99) {
             self.bmiReport = self.allReportDataArray[29].category_description;
+            self.bmiRisk = 'High Value';
         }
 
         if (data[0].cvd_score === 20) {
