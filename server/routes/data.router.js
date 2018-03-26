@@ -172,7 +172,7 @@ router.post('/', (request, response) => {
 router.get('/reports/:id', (request, response) => {
   const id = request.params.id;
   console.log('get reports id', id);
-  const sqlText = `SELECT category_id, category_description FROM report_info`;
+  const sqlText = `SELECT category_id, category_description FROM report_info ORDER BY category_id`;
   pool.query(sqlText)
     .then(function(result) {
       console.log('Get result:', result);

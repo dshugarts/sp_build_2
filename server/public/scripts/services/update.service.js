@@ -64,9 +64,9 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         console.log('family history score = ', family_history_score);
     
         let bp_score = 0;
-        if ((newEntry.systolic_value < 160 && newEntry.systolic_value > 139) || (newEntry.diastolic_value <100 && newEntry.diastolic_value > 89)) {
+        if ((newEntry.systolic_value < 180 && newEntry.systolic_value > 130) || (newEntry.diastolic_value <120 && newEntry.diastolic_value > 80)) {
             bp_score = 1;
-        } else if (newEntry.systolic_value < 140 && newEntry.diastolic_value < 90) {
+        } else if (newEntry.systolic_value < 131 && newEntry.diastolic_value < 81) {
             bp_score = 2;
         } else {
             bp_score = 0;
