@@ -49,6 +49,20 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.activityRisk = '';
     self.nicotineDisplay = '';
     self.historyDisplay = '';
+    self.ageClass = '';
+    self.bpClass = '';
+    self.ldlClass = '';
+    self.hdlClass = '';
+    self.gluClass = '';
+    self.waistClass = '';
+    self.historyClass = '';
+    self.activityClass = '';
+    self.nicotineClass = '';
+    self.sleepClass = '';
+    self.trgClass = '';
+    self.hhsClass = '';
+    self.bmiClass = '';
+    self.cvdRisk = '';
 
     self.letPass = function() {
         $location.url('/user');
@@ -302,108 +316,135 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
           if (data[0].age_score === 2) {
               self.ageReport = self.allReportDataArray[0].category_description;
               self.ageRisk = 'Low Risk Value';
+              self.ageClass = 'bg-success';
           } else if (data[0].age_score === 0) {
               self.ageReport = self.allReportDataArray[1].category_description;
               self.ageRisk = 'High Risk Value';
+              self.ageClass = 'bg-danger';
           }
 
           if (data[0].bp_score === 2) {
               self.bpReport = self.allReportDataArray[2].category_description;
               self.bpRisk = 'Low Risk Value';
+              self.bpClass = 'bg-success';
           } else if (data[0].bp_score === 1) {
               self.bpReport = self.allReportDataArray[3].category_description;
               self.bpRisk = 'Moderate Risk Value';
+              self.bpClass = 'bg-warning';
           } else if (data[0].bp_score === 0) {
               self.bpReport = self.allReportDataArray[4].category_description;
               self.bpRisk = 'High Risk Value';
+              self.bpClass = 'bg-danger';
           }
 
           if (data[0].hdl_score === 2) {
             self.hdlReport = self.allReportDataArray[5].category_description;
             self.hdlRisk = 'Low Risk Value';
+            self.hdlClass = 'bg-success';
         } else if (data[0].hdl_score === 1) {
             self.hdlReport = self.allReportDataArray[6].category_description;
             self.hdlRisk = 'Moderate Risk Value';
+            self.hdlClass = 'bg-warning';
         } else if (data[0].hdl_score === 0) {
             self.hdlReport = self.allReportDataArray[7].category_description;
             self.hdlRisk = 'High Risk Value';
+            self.hdlClass = 'bg-danger';
         }
 
         if (data[0].ldl_score === 2) {
             self.ldlReport = self.allReportDataArray[8].category_description;
             self.ldlRisk = 'Low Risk Value';
+            self.ldlClass = 'bg-success';
         } else if (data[0].ldl_score === 1) {
             self.ldlReport = self.allReportDataArray[9].category_description;
             self.ldlRisk = 'Moderate Risk Value';
+            self.ldlClass = 'bg-warning';
         } else if (data[0].ldl_score === 0) {
             self.ldlReport = self.allReportDataArray[10].category_description;
             self.ldlRisk = 'High Risk Value';
+            self.ldlClass = 'bg-warning';
         }
 
         if (data[0].glu_score === 2) {
             self.gluReport = self.allReportDataArray[11].category_description;
             self.gluRisk = 'Low Risk Value';
+            self.gluClass = 'bg-success';
         } else if (data[0].glu_score === 1) {
             self.gluReport = self.allReportDataArray[12].category_description;
             self.gluRisk = 'Moderate Risk Value';
+            self.gluClass = 'bg-warning';
         } else if (data[0].glu_score === 0) {
             self.gluReport = self.allReportDataArray[13].category_description;
             self.gluRisk = 'High Risk Value';
+            self.gluClass = 'bg-danger';
         }
 
         if (data[0].waist_score === 2) {
             self.waistReport = self.allReportDataArray[14].category_description;
             self.waistRisk = 'Low Risk Value';
-            self.historyDisplay = 'No';
+            self.waistClass = 'bg-success';
         } else if (data[0].waist_score === 0) {
             self.waistReport = self.allReportDataArray[15].category_description;
             self.waistRisk = 'High Risk Value';
-            self.historyDisplay = 'Yes';
+            self.waistClass = 'bg-danger';
         }
 
         if (data[0].family_history_score === 2) {
             self.historyReport = self.allReportDataArray[16].category_description;
             self.historyRisk = 'Low Risk Value';
+            self.historyDisplay = 'No';
+            self.historyClass = 'bg-success';
         } else if (data[0].family_history_score === 0) {
             self.historyReport = self.allReportDataArray[17].category_description;
             self.historyRisk = 'High Risk Value';
+            self.historyDisplay = 'Yes';
+            self.historyClass = 'bg-danger';
         }
 
         if (data[0].physical_activity_score === 2) {
             self.activityReport = self.allReportDataArray[18].category_description;
             self.activityRisk = 'Low Risk Value';
+            self.activityClass = 'bg-success';
         } else if (data[0].physical_activity_score === 0) {
             self.activityReport = self.allReportDataArray[19].category_description;
             self.activityRisk = 'High Risk Value';
+            self.activityClass = 'bg-danger';
         }
 
         if (data[0].nicotine_score === 2) {
             self.nicotineReport = self.allReportDataArray[20].category_description;
             self.nicotineRisk = 'Low Risk Value';
             self.nicotineDisplay = 'No';
+            self.nicotineClass = 'bg-success';
         } else if (data[0].nicotine_score === 0) {
             self.nicotineReport = self.allReportDataArray[21].category_description;
             self.nicotineRisk = 'High Risk Value';
             self.nicotineDisplay = 'Yes';
+            self.nicotineClass = 'bg-danger';
         }
 
         if (data[0].sleep_score === 2) {
             self.sleepReport = self.allReportDataArray[22].category_description;
             self.sleepRisk = 'Low Risk Value';
+            self.sleepClass = 'bg-success';
         } else if (data[0].sleep_score === 0) {
             self.sleepReport = self.allReportDataArray[23].category_description;
             self.sleepRisk = 'High Risk Value';
+            self.sleepClass = 'bg-danger';
         }
 
         if (data[0].trg_value < 150) {
             self.trgReport = self.allReportDataArray[24].category_description;
             self.trgRisk = 'Optimal Value';
+            self.trgClass = 'bg-success';
         } else if (data[0].trg_value > 149 && data[0].trg_value < 201) {
             self.trgReport = self.allReportDataArray[25].category_description;
             self.trgRisk = 'Moderate Value';
+            self.trgClass = 'bg-warning';
         } else if (data[0].trg_value > 200) {
             self.trgReport = self.allReportDataArray[26].category_description;
             self.trgRisk = 'High Value';
+            self.trgClass = 'bg-danger';
         }
 
         let bmiScore = 0;
@@ -415,56 +456,101 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         if (bmiScoreUse < 25) {
             self.bmiReport = self.allReportDataArray[27].category_description;
             self.bmiRisk = 'Optimal Value';
+            self.bmiClass = 'bg-success';
         } else if (bmiScoreUse > 24.99 && bmiScoreUse < 30) {
             self.bmiReport = self.allReportDataArray[28].category_description;
             self.bmiRisk = 'Moderate Value';
+            self.bmiClass = 'bg-warning';
         } else if (bmiScoreUse > 29.99) {
             self.bmiReport = self.allReportDataArray[29].category_description;
             self.bmiRisk = 'High Value';
+            self.bmiClass = 'bg-danger';
         }
 
         if (data[0].cvd_score === 20) {
             self.hhsReport = self.allReportDataArray[30].category_description;
+            self.cvdRisk = 'Low Risk Score';
+            self.hhsClass = 'bg-success';
         } else if (data[0].cvd_score === 19) {
             self.hhsReport = self.allReportDataArray[31].category_description;
+            self.cvdRisk = 'Low Risk Score';
+            self.hhsClass = 'bg-success';
         } else if (data[0].cvd_score === 18) {
             self.hhsReport = self.allReportDataArray[32].category_description;
+            self.cvdRisk = 'Low Risk Score';
+            self.hhsClass = 'bg-success';
         } else if (data[0].cvd_score === 17) {
             self.hhsReport = self.allReportDataArray[33].category_description;
+            self.cvdRisk = 'Low Risk Score';
+            self.hhsClass = 'bg-success';
         } else if (data[0].cvd_score === 16) {
             self.hhsReport = self.allReportDataArray[34].category_description;
+            self.cvdRisk = 'Low Risk Score';
+            self.hhsClass = 'bg-success';
         } else if (data[0].cvd_score === 15) {
             self.hhsReport = self.allReportDataArray[35].category_description;
+            self.cvdRisk = 'Low Risk Score';
+            self.hhsClass = 'bg-success';
         } else if (data[0].cvd_score === 14) {
             self.hhsReport = self.allReportDataArray[36].category_description;
+            self.cvdRisk = 'Low Risk Score';
+            self.hhsClass = 'bg-success';
         } else if (data[0].cvd_score === 13) {
             self.hhsReport = self.allReportDataArray[37].category_description;
+            self.cvdRisk = 'Moderate Risk Score';
+            self.hhsClass = 'bg-warning';
         } else if (data[0].cvd_score === 12) {
             self.hhsReport = self.allReportDataArray[38].category_description;
+            self.cvdRisk = 'Moderate Risk Score';
+            self.hhsClass = 'bg-warning';
         } else if (data[0].cvd_score === 11) {
             self.hhsReport = self.allReportDataArray[39].category_description;
+            self.cvdRisk = 'Moderate Risk Score';
+            self.hhsClass = 'bg-warning';
         } else if (data[0].cvd_score === 10) {
             self.hhsReport = self.allReportDataArray[40].category_description;
+            self.cvdRisk = 'Moderate Risk Score';
+            self.hhsClass = 'bg-warning';
         } else if (data[0].cvd_score === 9) {
             self.hhsReport = self.allReportDataArray[41].category_description;
+            self.cvdRisk = 'Moderate Risk Score';
+            self.hhsClass = 'bg-warning';
         } else if (data[0].cvd_score === 8) {
             self.hhsReport = self.allReportDataArray[42].category_description;
+            self.cvdRisk = 'Moderate Risk Score';
+            self.hhsClass = 'bg-warning';
         } else if (data[0].cvd_score === 7) {
             self.hhsReport = self.allReportDataArray[43].category_description;
+            self.cvdRisk = 'Moderate Risk Score';
+            self.hhsClass = 'bg-warning';
         } else if (data[0].cvd_score === 6) {
             self.hhsReport = self.allReportDataArray[44].category_description;
+            self.cvdRisk = 'High Risk Score';
+            self.hhsClass = 'bg-danger';
         } else if (data[0].cvd_score === 5) {
             self.hhsReport = self.allReportDataArray[45].category_description;
+            self.cvdRisk = 'High Risk Score';
+            self.hhsClass = 'bg-danger';
         } else if (data[0].cvd_score === 4) {
             self.hhsReport = self.allReportDataArray[46].category_description;
+            self.cvdRisk = 'High Risk Score';
+            self.hhsClass = 'bg-danger';
         } else if (data[0].cvd_score === 3) {
             self.hhsReport = self.allReportDataArray[47].category_description;
+            self.cvdRisk = 'High Risk Score';
+            self.hhsClass = 'bg-danger';
         } else if (data[0].cvd_score === 2) {
             self.hhsReport = self.allReportDataArray[48].category_description;
+            self.cvdRisk = 'High Risk Score';
+            self.hhsClass = 'bg-danger';
         } else if (data[0].cvd_score === 1) {
             self.hhsReport = self.allReportDataArray[49].category_description;
+            self.cvdRisk = 'High Risk Score';
+            self.hhsClass = 'bg-danger';
         } else if (data[0].cvd_score === 0) {
             self.hhsReport = self.allReportDataArray[50].category_description;
+            self.cvdRisk = 'High Risk Score';
+            self.hhsClass = 'bg-danger';
         }
 
           console.log('HHS REPORT = ', self.hhsReport);

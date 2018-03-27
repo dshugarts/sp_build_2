@@ -35,6 +35,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.bmiReport = DataService.bmiReport;
     self.hhsReport = DataService.hhsReport;
     self.mybmi = DataService.mybmi;
+    self.cvdRisk = DataService.cvdRisk;
     self.sleepRisk = DataService.sleepRisk;
     self.trgRisk = DataService.trgRisk;
     self.bmiRisk = DataService.bmiRisk;
@@ -61,9 +62,24 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.goBmiReport = DataService.goBmiReport;
     self.nicotineDisplay = DataService.nicotineDisplay;
     self.historyDisplay = DataService.historyDisplay;
+    self.ageClass = DataService.ageClass;
+    self.bpClass = DataService.bpClass;
+    self.ldlClass = DataService.ldlClass;
+    self.hdlClass = DataService.hdlClass;
+    self.gluClass = DataService.gluClass;
+    self.waistClass = DataService.waistClass;
+    self.historyClass = DataService.historyClass;
+    self.activityClass = DataService.activityClass;
+    self.nicotineClass = DataService.nicotineClass;
+    self.sleepClass = DataService.sleepClass;
+    self.bmiClass = DataService.bmiClass;
+    self.trgClass = DataService.trgClass;
+    self.hhsClass = DataService.hhsClass;
     
     self.goAgeInfo = function() {
       self.hi = true;
     }
+
+    console.log('ageclass', self.ageClass);
 
   }]); // end Report Controller
