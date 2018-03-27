@@ -20,6 +20,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.getData = DataService.getData;
     self.id = UserService.userObject.id;
     self.getAllReportData = DataService.getAllReportData;
+    self.reportPage = PostDataService.reportPage;
     self.ageReport = DataService.ageReport;
     self.bpReport = DataService.bpReport;
     self.hdlReport = DataService.hdlReport;
@@ -46,5 +47,23 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.activityRisk = DataService.activityRisk;
     self.historyRisk = DataService.historyRisk;
     self.nicotineRisk = DataService.nicotineRisk;
+    self.goBpReport = DataService.goBpReport;
+    self.goGluReport = DataService.goGluReport;
+    self.goAgeReport = DataService.goAgeReport;
+    self.goLdlReport = DataService.goLdlReport;
+    self.goHdlReport = DataService.goHdlReport;
+    self.goWaistReport = DataService.goWaistReport;
+    self.goHistoryReport = DataService.goHistoryReport;
+    self.goActivityReport = DataService.goActivityReport;
+    self.goNicotineReport = DataService.goNicotineReport;
+    self.goSleepReport = DataService.goSleepReport;
+    self.goTrgReport = DataService.goTrgReport;
+    self.goBmiReport = DataService.goBmiReport;
+    self.nicotineDisplay = DataService.nicotineDisplay;
+    self.historyDisplay = DataService.historyDisplay;
+    
+    self.goAgeInfo = function() {
+      self.hi = true;
+    }
 
   }]); // end Report Controller

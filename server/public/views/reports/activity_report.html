@@ -1,0 +1,35 @@
+<div class="container">
+        <h2>My Physical Activity Report</h2>
+    </br>
+    </br>
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                    <th>Risk Level</th>
+                    <th>Chart</th>
+                  </tr>
+                </thead>
+                <tbody ng-repeat="data in vm.dataArray">
+                        <td><strong>Physical Activity (min/week):</strong></td>
+                        <td>{{data.physical_activity_value}}</td>
+                        <td>{{vm.activityRisk}}</td>
+                        <td><button ng-click="vm.getActivityData(vm.id)" class="btn btn-primary">Chart</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        {{vm.activityReport}}
+    </div>
+    </br>
+    </br>
+    <div class="container">
+            
+    </div>
+    </br>
+    </br>
+    <div class="container">
+            <button class="btn btn-primary" ng-click="vm.reportPage()">Return to Report</button>
+        </div>

@@ -47,10 +47,61 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
     self.nicotineRisk = '';
     self.historyRisk = '';
     self.activityRisk = '';
+    self.nicotineDisplay = '';
+    self.historyDisplay = '';
 
     self.letPass = function() {
         $location.url('/user');
     }
+
+    self.goGluReport = function() {
+        $location.url('/glu_report')
+    }
+
+    self.goBmiReport = function() {
+        $location.url('/bmi_report')
+    }
+
+    self.goSleepReport = function() {
+        $location.url('/sleep_report')
+    }
+
+    self.goNicotineReport = function() {
+        $location.url('/nicotine_report')
+    }
+
+    self.goTrgReport = function() {
+        $location.url('/trg_report')
+    }
+
+    self.goHistoryReport = function() {
+        $location.url('/history_report')
+    }
+
+    self.goActivityReport = function() {
+        $location.url('/activity_report')
+    }
+
+    self.goAgeReport = function() {
+        $location.url('/age_report')
+    }
+
+    self.goLdlReport = function() {
+        $location.url('/ldl_report')
+    }
+
+    self.goWaistReport = function() {
+        $location.url('/waist_report')
+    }
+
+    self.goHdlReport = function() {
+        $location.url('/hdl_report')
+    }
+
+    self.goBpReport = function() {
+        $location.url('/bp_report')
+    }
+
     self.postData = function(entry) {
         console.log(entry);
         $http({
@@ -303,9 +354,11 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         if (data[0].waist_score === 2) {
             self.waistReport = self.allReportDataArray[14].category_description;
             self.waistRisk = 'Low Risk Value';
+            self.historyDisplay = 'No';
         } else if (data[0].waist_score === 0) {
             self.waistReport = self.allReportDataArray[15].category_description;
             self.waistRisk = 'High Risk Value';
+            self.historyDisplay = 'Yes';
         }
 
         if (data[0].family_history_score === 2) {
@@ -327,9 +380,11 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         if (data[0].nicotine_score === 2) {
             self.nicotineReport = self.allReportDataArray[20].category_description;
             self.nicotineRisk = 'Low Risk Value';
+            self.nicotineDisplay = 'No';
         } else if (data[0].nicotine_score === 0) {
             self.nicotineReport = self.allReportDataArray[21].category_description;
             self.nicotineRisk = 'High Risk Value';
+            self.nicotineDisplay = 'Yes';
         }
 
         if (data[0].sleep_score === 2) {

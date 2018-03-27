@@ -169,6 +169,114 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/aaa', {
+      templateUrl: '/views/templates/aaa.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/bp_report', {
+      templateUrl: '/views/reports/bp_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/bmi_report', {
+      templateUrl: '/views/reports/bmi_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/sleep_report', {
+      templateUrl: '/views/reports/sleep_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/history_report', {
+      templateUrl: '/views/reports/history_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/nicotine_report', {
+      templateUrl: '/views/reports/nicotine_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/activity_report', {
+      templateUrl: '/views/reports/activity_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/waist_report', {
+      templateUrl: '/views/reports/waist_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/ldl_report', {
+      templateUrl: '/views/reports/ldl_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/hdl_report', {
+      templateUrl: '/views/reports/hdl_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/age_report', {
+      templateUrl: '/views/reports/age_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/glu_report', {
+      templateUrl: '/views/reports/glu_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/bmi', {
       templateUrl: '/views/charts/bmi.html',
       controller: 'BMIController as vm',

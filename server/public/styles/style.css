@@ -80,6 +80,10 @@ body, html {
   margin-top: 14px;
 }
 
+thead {
+  font-size: 14;
+}
+
 #container {
   margin-top: 10px;
 }
