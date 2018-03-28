@@ -22,8 +22,6 @@ myApp.controller('ResourcesController', ['$http', '$location', 'UserService', 'D
     self.activityResourceOne = DataService.activityResourceOne;
     self.waistResourceOne = DataService.waistResourceOne;
 
-    console.log('bp1', self.bpResourceOne);
-    console.log('bp2', self.bpResourceTwo);
     
     if (self.bpResourceOne != '') {
       self.bpone = true;
