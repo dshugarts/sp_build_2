@@ -13,6 +13,7 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.trgClass}}>
                         <td><strong>Triglycerides:</strong></td>
                         <td>{{data.trg_value}}</td>
                         <td>{{vm.trgRisk}}</td>

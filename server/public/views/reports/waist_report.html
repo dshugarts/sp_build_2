@@ -13,6 +13,7 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.waistClass}}>
                         <td><strong>Waist Size (in.):</strong></td>
                         <td>{{data.waist_value}}</td>
                         <td>{{vm.waistRisk}}</td>

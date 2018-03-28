@@ -13,6 +13,7 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.sleepClass}}>
                         <td><strong>Sleep (hrs/night):</strong></td>
                         <td>{{data.sleep_value}}</td>
                         <td>{{vm.sleepRisk}}</td>

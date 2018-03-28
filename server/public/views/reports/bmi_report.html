@@ -13,6 +13,7 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.bmiClass}}>
                         <td><strong>Body Mass Index (BMI):</strong></td>
                         <td>{{vm.mybmi}}</td>
                         <td>{{vm.bmiRisk}}</td>

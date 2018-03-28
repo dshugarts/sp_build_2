@@ -13,6 +13,7 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.activityClass}}>
                         <td><strong>Physical Activity (min/week):</strong></td>
                         <td>{{data.physical_activity_value}}</td>
                         <td>{{vm.activityRisk}}</td>

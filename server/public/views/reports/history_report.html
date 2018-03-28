@@ -12,6 +12,7 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.historyClass}}>
                         <td><strong>Family History of CVDs:</strong></td>
                         <td>{{vm.historyDisplay}}</td>
                         <td>{{vm.historyRisk}}</td>

@@ -13,6 +13,7 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.hdlClass}}>
                         <td><strong>HDL:</strong></td>
                         <td>{{data.hdl_value}}</td>
                         <td>{{vm.hdlRisk}}</td>

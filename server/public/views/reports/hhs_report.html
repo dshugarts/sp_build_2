@@ -13,8 +13,9 @@
                   </tr>
                 </thead>
                 <tbody ng-repeat="data in vm.dataArray">
+                    <tr class={{vm.hhsClass}}>
                         <td><strong>Healthy Heart Score:</strong></td>
-                        <td>{{data.cvd_value}}</td>
+                        <td>{{data.cvd_score}}</td>
                         <td>{{vm.cvdRisk}}</td>
                         <td><button ng-click="vm.getHeartHealthData(vm.id)" class="btn btn-primary">Chart</button></td>
                 </tr>
