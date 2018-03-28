@@ -1,5 +1,5 @@
 myApp.controller('BMIController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('BMIController created');
+    // console.log('BMIController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -10,12 +10,6 @@ myApp.controller('BMIController', ['$http', '$location', 'UserService', 'PostDat
     self.bmiScoreArray = PostDataService.bmiScoreArray;
     self.bmiScoreUse = PostDataService.bmiScoreUse;
     self.dates = PostDataService.dates;
- 
-
-
-    console.log('GCAA', self.bmiScoreArray);
-    console.log('DAA', self.dates);
-
 
     new Chart(document.getElementById("line-chart"), {
         type: 'line',

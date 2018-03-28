@@ -1,5 +1,5 @@
 myApp.controller('DataController', ['$http', '$location', 'UserService', 'DataService', function($http, $location, UserService, DataService) {
-    console.log('DataController created');
+    // console.log('DataController created');
     var self = this;
     self.userService = UserService;
     self.dataService = DataService
@@ -8,7 +8,7 @@ myApp.controller('DataController', ['$http', '$location', 'UserService', 'DataSe
     self.newEntry = DataService.newEntry;
     self.entryObject = DataService.entryObject;
     self.id = UserService.userObject.id;
-    console.log(self.id);
+
     self.addEntry = DataService.addEntry;
 
 

@@ -1,5 +1,5 @@
 myApp.controller('HeartHealthController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('HeartHealthController created');
+    // console.log('HeartHealthController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -11,7 +11,6 @@ myApp.controller('HeartHealthController', ['$http', '$location', 'UserService', 
     self.dates = PostDataService.dates;
 
 
-    console.log('GCAA', self.dates);
 
     new Chart(document.getElementById("line-chart"), {
         type: 'line',

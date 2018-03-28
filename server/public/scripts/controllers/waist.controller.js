@@ -1,5 +1,5 @@
 myApp.controller('WaistController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('WaistController created');
+  //  console.log('WaistController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -9,10 +9,6 @@ myApp.controller('WaistController', ['$http', '$location', 'UserService', 'PostD
     self.reportPage = PostDataService.reportPage;
     self.waistScore = PostDataService.waistScore;
     self.dates = PostDataService.dates;
-
-
-    console.log('GCAA', self.waistScore);
-
 
     new Chart(document.getElementById("line-chart"), {
         type: 'line',

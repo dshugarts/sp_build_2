@@ -1,5 +1,5 @@
 myApp.controller('UserController', ['UserService', 'DataService', function(UserService, DataService) {
-  console.log('UserController created');
+//  console.log('UserController created');
   var self = this;
   self.userService = UserService;
   self.DataService = DataService;
@@ -10,10 +10,8 @@ myApp.controller('UserController', ['UserService', 'DataService', function(UserS
   self.myScore = DataService.myScore;
   self.pScore = DataService.pScore;
 
-  console.log('user controller: ', self.id);
 
 self.getData(self.id);
- console.log('controller', self.myScore);
   
  const sectors = [{
   color : "red",

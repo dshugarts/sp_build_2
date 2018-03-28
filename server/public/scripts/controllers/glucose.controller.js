@@ -1,5 +1,5 @@
 myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('GlucoseController created');
+    // console.log('GlucoseController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -11,9 +11,6 @@ myApp.controller('GlucoseController', ['$http', '$location', 'UserService', 'Pos
     self.dates = PostDataService.dates;
  
 
-
-    console.log('GCAA', self.gluScore);
-    console.log('DAA', self.dates);
 
 
     new Chart(document.getElementById("line-chart"), {

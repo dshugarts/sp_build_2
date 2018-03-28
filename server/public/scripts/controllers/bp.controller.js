@@ -1,5 +1,5 @@
 myApp.controller('BPController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('BPController created');
+    // console.log('BPController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -10,10 +10,6 @@ myApp.controller('BPController', ['$http', '$location', 'UserService', 'PostData
     self.systolicScore = PostDataService.systolicScore;
     self.diastolicScore = PostDataService.diastolicScore;
     self.dates = PostDataService.dates;
-
-
-    console.log('GCAA', self.systolicScore);
-    console.log('GCAA', self.diastolicScore);
 
 
     new Chart(document.getElementById("line-chart"), {

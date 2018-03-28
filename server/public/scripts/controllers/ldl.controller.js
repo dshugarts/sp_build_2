@@ -1,5 +1,5 @@
 myApp.controller('LDLController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('LDLController created');
+    // console.log('LDLController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -11,7 +11,6 @@ myApp.controller('LDLController', ['$http', '$location', 'UserService', 'PostDat
     self.dates = PostDataService.dates;
 
 
-    console.log('GCAA', self.ldlScore);
 
 
     new Chart(document.getElementById("line-chart"), {

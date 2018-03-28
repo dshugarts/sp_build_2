@@ -1,5 +1,5 @@
 myApp.controller('ScoreChartController', ['$http', '$location', 'UserService', 'DataService', function($http, $location, UserService, DataService) {
-    console.log('ScoreChartController created');
+  //  console.log('ScoreChartController created');
     var self = this;
     self.userService = UserService;
     self.dataService = DataService

@@ -1,5 +1,5 @@
 myApp.controller('ActivityController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('ActivityController created');
+    // console.log('ActivityController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -9,12 +9,6 @@ myApp.controller('ActivityController', ['$http', '$location', 'UserService', 'Po
     self.reportPage = PostDataService.reportPage;
     self.activityScore = PostDataService.activityScore;
     self.dates = PostDataService.dates;
- 
-
-
-    console.log('GCAA', self.activityScore);
-    console.log('DAA', self.dates);
-
 
     new Chart(document.getElementById("line-chart"), {
         type: 'line',

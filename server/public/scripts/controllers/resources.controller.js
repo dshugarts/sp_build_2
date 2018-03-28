@@ -1,5 +1,5 @@
 myApp.controller('ResourcesController', ['$http', '$location', 'UserService', 'DataService', function($http, $location, UserService, DataService) {
-    console.log('ResourcesController created');
+  //  console.log('ResourcesController created');
     var self = this;
     self.userService = UserService;
     self.DataService = DataService;

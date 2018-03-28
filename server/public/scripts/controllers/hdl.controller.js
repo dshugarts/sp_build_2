@@ -1,5 +1,5 @@
 myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('HDLController created');
+    // console.log('HDLController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -11,7 +11,6 @@ myApp.controller('HDLController', ['$http', '$location', 'UserService', 'PostDat
     self.dates = PostDataService.dates;
 
 
-    console.log('HDLCAA', self.hdlScore);
 
 
     new Chart(document.getElementById("line-chart"), {

@@ -1,5 +1,5 @@
 myApp.controller('ReportController', ['$http', '$location', 'UserService', 'DataService', 'PostDataService', function($http, $location, UserService, DataService, PostDataService) {
-    console.log('ReportController created');
+  //  console.log('ReportController created');
     var self = this;
     self.userService = UserService;
     self.DataService = DataService;
@@ -80,6 +80,6 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
       self.hi = true;
     }
 
-    console.log('ageclass', self.ageClass);
+   
 
   }]); // end Report Controller

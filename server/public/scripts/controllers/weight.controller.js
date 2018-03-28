@@ -1,5 +1,5 @@
 myApp.controller('WeightController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('WeightController created');
+  //  console.log('WeightController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -10,10 +10,6 @@ myApp.controller('WeightController', ['$http', '$location', 'UserService', 'Post
     self.reportPage = PostDataService.reportPage;
     self.weightScore = PostDataService.weightScore;
     self.dates = PostDataService.dates;
-
-
-    console.log('GCAA', self.weightScore);
-
 
     new Chart(document.getElementById("line-chart"), {
         type: 'line',

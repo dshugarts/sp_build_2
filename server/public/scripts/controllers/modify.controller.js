@@ -1,5 +1,5 @@
 myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'DataService', 'UpdateService', function($http, $location, UserService, DataService, UpdateService) {
-    console.log('ModifyController created');
+   // console.log('ModifyController created');
     var self = this;
     self.userService = UserService;
     self.dataService = DataService;
@@ -9,14 +9,9 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
     self.newEntry = DataService.newEntry;
     self.entryObject = DataService.entryObject;
     self.id = UserService.userObject.id;
-    console.log(self.id);
     self.addEntry = DataService.addEntry;
     self.newNicotine = self.dataArray[0].nicotine_value.toString();
     self.newHistory = self.dataArray[0].family_history_value.toString();
-    console.log('DA', self.dataArray);
-    console.log('nicotine = ', self.newNicotine);
-    console.log('gender = ', self.dataArray[0].gender);
-    console.log('history = ', self.newHistory);
     self.scoreData = UpdateService.scoreData;
 
 
@@ -33,7 +28,7 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
       }
 
       self.saveData = function(data, nic, his){
-        console.log('PUT DATA', data, nic, his);
+      //  console.log('PUT DATA', data, nic, his);
         updateObject = {
             entry_id: data.entry_id,
             id: data.id,
@@ -54,7 +49,7 @@ myApp.controller('ModifyController', ['$http', '$location', 'UserService', 'Data
             weight_value: data.weight_value,
             gender: data.gender
         }
-        console.log('updateObject', updateObject);
+      //  console.log('updateObject', updateObject);
         UpdateService.scoreData(updateObject);
       } // end saveData
 

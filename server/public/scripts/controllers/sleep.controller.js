@@ -1,5 +1,5 @@
 myApp.controller('SleepController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('SleepController created');
+  //  console.log('SleepController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -11,7 +11,6 @@ myApp.controller('SleepController', ['$http', '$location', 'UserService', 'PostD
     self.dates = PostDataService.dates;
 
 
-    console.log('GCAA', self.sleepScore);
 
 
     new Chart(document.getElementById("line-chart"), {

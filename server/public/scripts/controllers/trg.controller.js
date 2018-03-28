@@ -1,5 +1,5 @@
 myApp.controller('TRGController', ['$http', '$location', 'UserService', 'PostDataService', function($http, $location, UserService, PostDataService) {
-    console.log('TRGController created');
+   // console.log('TRGController created');
     var self = this;
     self.userService = UserService;
     self.postdataService = PostDataService;
@@ -11,8 +11,6 @@ myApp.controller('TRGController', ['$http', '$location', 'UserService', 'PostDat
     self.trgScore = PostDataService.trgScore;
     self.dates = PostDataService.dates;
 
-
-    console.log('GCAA', self.trgScore);
 
 
     new Chart(document.getElementById("line-chart"), {
