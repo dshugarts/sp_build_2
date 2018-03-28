@@ -22,5 +22,48 @@ myApp.controller('ResourcesController', ['$http', '$location', 'UserService', 'D
     self.activityResourceOne = DataService.activityResourceOne;
     self.waistResourceOne = DataService.waistResourceOne;
 
+    console.log('bp1', self.bpResourceOne);
+    console.log('bp2', self.bpResourceTwo);
+    
+    if (self.bpResourceOne != '') {
+      self.bpone = true;
+    } else if (self.bpResourceTwo != '') {
+      self.bptwo = true;
+    }
+
+    if (self.hdlResourceOne != '') {
+      self.hdlone = true;
+    } else if (self.hdlResourceTwo != '') {
+      self.hdltwo = true;
+    }
+
+    if (self.ldlResourceOne != '') {
+      self.ldlone = true;
+    } else if (self.ldlResourceTwo != '') {
+      self.ldltwo = true;
+    }
+
+    if (self.gluResourceOne != '') {
+      self.gluone = true;
+    } else if (self.gluResourceTwo != '') {
+      self.glutwo = true;
+    }
+
+    if (self.sleepResourceOne != '') {
+      self.sleepone = true;
+    } 
+
+    if (self.nicotineResourceOne != '') {
+      self.nicotineone = true;
+    } 
+
+    if (self.activityResourceOne != '') {
+      self.activityone = true;
+    } 
+
+    if (self.waistResourceOne != '') {
+      self.waistone = true;
+    } 
+
 
   }]);
