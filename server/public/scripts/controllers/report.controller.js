@@ -52,6 +52,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.goGluReport = DataService.goGluReport;
     self.goAgeReport = DataService.goAgeReport;
     self.goLdlReport = DataService.goLdlReport;
+    self.goHhsReport = DataService.goHhsReport;
     self.goHdlReport = DataService.goHdlReport;
     self.goWaistReport = DataService.goWaistReport;
     self.goHistoryReport = DataService.goHistoryReport;
