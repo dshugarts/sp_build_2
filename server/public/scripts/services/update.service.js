@@ -1,5 +1,5 @@
 myApp.service('UpdateService', ['$http', '$location', 'DataService', function($http, $location, DataService){
-    console.log('UpdateService Loaded');
+//    console.log('UpdateService Loaded');
     var self = this;
     self.dataService = DataService;
     self.getData = DataService.getData;
@@ -10,25 +10,25 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
 
 
     self.putData = function(entry) {
-        console.log(entry);
+      //  console.log(entry);
         $http({
             method: 'PUT',
             url: `/data/update/${entry.entry_id}`,
             data: {entry: entry}
         }).then(function(response) {
-            console.log('Update response = ', response);
+          //  console.log('Update response = ', response);
             self.getData(entry.id);
         }).then(function(response) {
             $location.url('/data');
             self.newEntry = {};
         }).catch(function (error) {
-            console.log('put error', error);
+          //  console.log('put error', error);
         })
     } // end putData
 
 
     self.scoreData = function(newEntry) {
-        console.log('updateObject = ', newEntry);
+      //  console.log('updateObject = ', newEntry);
         let glu_score = 0;
         if (newEntry.glu_value >= 100 && newEntry.glu_value < 126) {
             glu_score = 1;
@@ -37,7 +37,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             glu_score = 0;
         } // end glu score if
-        console.log('glu_score = ', glu_score);
         
         let nicotine_score = 0;
         if (newEntry.nicotine_value === "false") {
@@ -45,7 +44,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             nicotine_value = 0;
         } // end nicotine if
-        console.log('nicotine score = ', nicotine_score);
        
         let sleep_score = 0;
         if (newEntry.sleep_value >= 7) {
@@ -53,7 +51,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             sleep_score = 0;
         } // end sleep if
-        console.log('sleep score = ', sleep_score);
     
         let family_history_score = 0;
         if (newEntry.family_history_value === "false") {
@@ -61,7 +58,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             family_history_score = 0;
         } // end family history if
-        console.log('family history score = ', family_history_score);
     
         let bp_score = 0;
         if ((newEntry.systolic_value < 180 && newEntry.systolic_value > 130) || (newEntry.diastolic_value <120 && newEntry.diastolic_value > 80)) {
@@ -71,7 +67,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             bp_score = 0;
         } // end bp score
-        console.log('bp score = ', bp_score);
     
         let physical_activity_score = 0;
         if (newEntry.physical_activity_value >= 150) {
@@ -79,7 +74,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             physical_activity_score = 0;
         } // end activity score if
-        console.log('physical activity score = ', physical_activity_score);
     
         let age_score = 0;
         if ((newEntry.age_value < 45 && newEntry.gender === "M") || (newEntry.age_value < 55 && newEntry.gender === "F")) {
@@ -87,7 +81,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             age_score = 0;
         } // end age score if
-        console.log('age score = ', age_score);
     
         let waist_score = 0;
         if ((newEntry.waist_value < 40 && newEntry.gender === "M") || (newEntry.waist_value < 35 && newEntry.gender === "F")) {
@@ -95,7 +88,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             waist_score = 0;
         } // end waist score if
-        console.log('waist score = ', waist_score);
     
         let hdl_score = 0;
         if (newEntry.hdl_value > 59) {
@@ -105,7 +97,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             hdl_score = 0;
         } // end hdl score if
-        console.log('hdl score = ', hdl_score);
     
         let ldl_score = 0;
         if (newEntry.ldl_value < 100) {
@@ -115,7 +106,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         } else {
             ldl_score = 0;
         } // end ldl score if
-        console.log('ldl score = ', ldl_score);
     
         let cvd_score = 0;
         cvd_score += age_score;
@@ -128,7 +118,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
         cvd_score += sleep_score;
         cvd_score += nicotine_score;
         cvd_score += family_history_score;
-        console.log('TOTAL CVD SCORE = ', cvd_score);
     
         let now_data_date = new Date();
     
@@ -164,7 +153,6 @@ myApp.service('UpdateService', ['$http', '$location', 'DataService', function($h
             cvd_score: cvd_score
         } // end entryObject
     
-        console.log('Updated and Scored = ', entryObject);
        
         self.putData(entryObject);
 
