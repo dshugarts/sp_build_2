@@ -68,6 +68,38 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         $location.url('/user');
     }
 
+    self.goBpResource = function() {
+        $location.url('/bp_resource')
+    }
+
+    self.goHdlResource = function() {
+        $location.url('/hdl_resource')
+    }
+
+    self.goLdlResource = function() {
+        $location.url('/ldl_resource')
+    }
+
+    self.goGluResource = function() {
+        $location.url('/glu_resource')
+    }
+
+    self.goWaistResource = function() {
+        $location.url('/waist_resource')
+    }
+
+    self.goActivityResource = function() {
+        $location.url('/activity_resource')
+    }
+
+    self.goNicotineResource = function() {
+        $location.url('/nicotine_resource')
+    }
+
+    self.goSleepResource = function() {
+        $location.url('/sleep_resource')
+    }
+
     self.goGluReport = function() {
         $location.url('/glu_report')
     }
@@ -345,7 +377,7 @@ myApp.service('DataService', ['$http', '$location', function($http, $location){
         } else if (data[0].ldl_score === 0) {
             self.ldlReport = self.allReportDataArray[10].category_description;
             self.ldlRisk = 'High Risk Value';
-            self.ldlClass = 'bg-warning';
+            self.ldlClass = 'bg-danger';
         }
 
         if (data[0].glu_score === 2) {

@@ -55,11 +55,6 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     .when('/register', {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm',
-      resolve: {
-        getuser : function(UserService){
-          return UserService.getuser();
-        }
-      }
     })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
@@ -216,6 +211,78 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/hhs_report', {
       templateUrl: '/views/reports/hhs_report.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/bp_resource', {
+      templateUrl: '/views/resources/bp_resource.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/hdl_resource', {
+      templateUrl: '/views/resources/hdl_resource.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/ldl_resource', {
+      templateUrl: '/views/resources/ldl_resource.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/glu_resource', {
+      templateUrl: '/views/resources/glu_resource.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/waist_resource', {
+      templateUrl: '/views/resources/waist_resource.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/activity_resource', {
+      templateUrl: '/views/resources/activity_resource.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/nicotine_resource', {
+      templateUrl: '/views/resources/nicotine_resource.html',
+      controller: 'ReportController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/sleep_resource', {
+      templateUrl: '/views/resources/sleep_resource.html',
       controller: 'ReportController as vm',
       resolve: {
         getuser : function(UserService){

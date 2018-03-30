@@ -76,6 +76,14 @@ body, html {
   padding: 2px;
 }
 
+ol {
+  list-style-type: disc;
+}
+
+ol li {
+  float: none;
+}
+
 #entryForm {
   margin-top: 14px;
 }

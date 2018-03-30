@@ -1,41 +1,90 @@
 <div ng-include="'views/partials/nav.html'"></div>
+
 <div class="container">
-    <h2>My Resources</h2>
-</div>
-            <div class="container" ng-if="vm.bpone">
-                    <h4>{{vm.bpResourceOne}}</h4>
-            </div>
-            <div class="container" ng-if="vm.bptwo">
-                    <h4>{{vm.bpResourceTwo}}</h4>
-            </div>
-            <div class="container" ng-if="vm.hdlone">
-                    <h4>{{vm.hdlResourceOne}}</h4>
-            </div>
-            <div class="container" ng-if="vm.hdltwo">
-                    <h4>{{vm.hdlResourceTwo}}</h4>
-            </div>
-            <div class="container" ng-if="vm.ldlone">
-                    <h4>{{vm.ldlResourceOne}}</h4>
-            </div>
-            <div class="container" ng-if="vm.ldltwo">
-                    <h4>{{vm.ldlResourceTwo}}</h4>
-            </div>
-            <div class="container" ng-if="vm.gluone">
-                    <h4>{{vm.gluResourceOne}}</h4>
-            </div>
-            <div class="container" ng-if="vm.glutwo">
-                    <h4>{{vm.gluResourceTwo}}</h4>
-            </div>
-            <div class="container" ng-if="vm.sleepone">
-                    <h4>{{vm.sleepResourceOne}}</h4>
-            </div>
-            <div class="container" ng-if="vm.nicotineone">
-                    <h4>{{vm.nicotineResourceOne}}</h4>
-            </div>
-            <div class="container" ng-if="vm.activityone">
-                    <h4>{{vm.activityResourceOne}}</h4>
-            </div>
-            <div class="container" ng-if="vm.waistone">
-                    <h4>{{vm.waistResourceOne}}</h4>
-            </div>
-</div>
+        <h2>My Suggested Resources for Improvement</h2>
+        </br>
+            <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Risk Level</th>
+                        <th>Improvement Methods</th>
+                      </tr>
+                    </thead>
+                    <tbody ng-repeat="data in vm.dataArray">
+                        <tr class={{vm.bpClass}} ng-if="vm.bpone" >
+                        <td><strong>Blood Pressure:</strong></td>
+                        <td>{{data.systolic_value}}/{{data.diastolic_value}}</td>
+                        <td>{{vm.bpRisk}}</td>
+                        <td><button ng-click="vm.goBpResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.bpClass}} ng-if="vm.bptwo">
+                        <td><strong>Blood Pressure:</strong></td>
+                        <td>{{data.systolic_value}}/{{data.diastolic_value}}</td>
+                        <td>{{vm.bpRisk}}</td>
+                        <td><button ng-click="vm.goBpResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.hdlClass}} ng-if="vm.hdlone" >
+                        <td><strong>HDL:</strong></td>
+                        <td>{{data.hdl_value}}</td>
+                        <td>{{vm.hdlRisk}}</td>
+                        <td><button ng-click="vm.goHdlResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.hdlClass}} ng-if="vm.hdltwo">
+                        <td><strong>HDL:</strong></td>
+                        <td>{{data.hdl_value}}</td>
+                        <td>{{vm.hdlRisk}}</td>
+                        <td><button ng-click="vm.goHdlResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.ldlClass}} ng-if="vm.ldlone" >
+                        <td><strong>LDL:</strong></td>
+                        <td>{{data.ldl_value}}</td>
+                        <td>{{vm.ldlRisk}}</td>
+                        <td><button ng-click="vm.goLdlResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.ldlClass}} ng-if="vm.ldltwo">
+                        <td><strong>LDL:</strong></td>
+                        <td>{{data.ldl_value}}</td>
+                        <td>{{vm.ldlRisk}}</td>
+                        <td><button ng-click="vm.goLdlResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.gluClass}} ng-if="vm.gluone" >
+                        <td><strong>Fasting Glucose:</strong></td>
+                        <td>{{data.glu_value}}</td>
+                        <td>{{vm.gluRisk}}</td>
+                        <td><button ng-click="vm.goGluResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.gluClass}} ng-if="vm.glutwo" >
+                        <td><strong>Fasting Glucose:</strong></td>
+                        <td>{{data.glu_value}}</td>
+                        <td>{{vm.gluRisk}}</td>
+                        <td><button ng-click="vm.goGluResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.waistClass}} ng-if="vm.waistone" >
+                        <td><strong>Waist Size (in.):</strong></td>
+                        <td>{{data.waist_value}}</td>
+                        <td>{{vm.waistRisk}}</td>
+                        <td><button ng-click="vm.goWaistResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.activityClass}} ng-if="vm.activityone" >
+                        <td><strong>Physical Activity:</strong></td>
+                        <td>{{data.physical_activity_value}}</td>
+                        <td>{{vm.activityRisk}}</td>
+                        <td><button ng-click="vm.goActivityResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.nicotineClass}} ng-if="vm.nicotineone" >
+                        <td><strong>Nicotine Use:</strong></td>
+                        <td>{{vm.nicotineDisplay}}</td>
+                        <td>{{vm.nicotineRisk}}</td>
+                        <td><button ng-click="vm.goNicotineResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+                        <tr class={{vm.sleepClass}} ng-if="vm.sleepone" >
+                        <td><strong>Sleep:</strong></td>
+                        <td>{{data.sleep_value}}</td>
+                        <td>{{vm.sleepRisk}}</td>
+                        <td><button ng-click="vm.goSleepResource()" class="btn btn-primary">Improvement Methods</button></td>
+                        </tr>
+        </tbody>
+        </table>
+        </div>

@@ -21,6 +21,31 @@ myApp.controller('ResourcesController', ['$http', '$location', 'UserService', 'D
     self.nicotineResourceOne = DataService.nicotineResourceOne;
     self.activityResourceOne = DataService.activityResourceOne;
     self.waistResourceOne = DataService.waistResourceOne;
+    self.bpClass = DataService.bpClass;
+    self.bpRisk = DataService.bpRisk;
+    self.goBpResource = DataService.goBpResource;
+    self.goHdlResource = DataService.goHdlResource;
+    self.hdlClass = DataService.hdlClass;
+    self.hdlRisk = DataService.hdlRisk;
+    self.goLdlResource = DataService.goLdlResource;
+    self.ldlClass = DataService.ldlClass;
+    self.ldlRisk = DataService.ldlRisk;
+    self.goGluResource = DataService.goGluResource;
+    self.gluClass = DataService.gluClass;
+    self.gluRisk = DataService.gluRisk;
+    self.goWaistResource = DataService.goWaistResource;
+    self.waistClass = DataService.waistClass;
+    self.waistRisk = DataService.waistRisk;
+    self.goActivityResource = DataService.goActivityResource;
+    self.activityClass = DataService.activityClass;
+    self.activityRisk = DataService.activityRisk;
+    self.goNicotineResource = DataService.goNicotineResource;
+    self.nicotineClass = DataService.nicotineClass;
+    self.nicotineRisk = DataService.nicotineRisk;
+    self.goSleepResource = DataService.goSleepResource;
+    self.sleepClass = DataService.sleepClass;
+    self.sleepRisk = DataService.sleepRisk;
+    self.nicotineDisplay = DataService.nicotineDisplay;
 
     
     if (self.bpResourceOne != '') {

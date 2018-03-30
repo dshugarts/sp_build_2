@@ -35,6 +35,10 @@ myApp.service('PostDataService', ['$http', '$location', function($http, $locatio
       $location.url('/aaa');
     } // end reportPage
 
+    self.resourcePage = function() {
+      $location.url('/resources');
+    } // end resourcePage
+
 
     self.getGluData = function(id){
       self.gluScore = [];

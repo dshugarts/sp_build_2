@@ -21,6 +21,7 @@ myApp.controller('ReportController', ['$http', '$location', 'UserService', 'Data
     self.id = UserService.userObject.id;
     self.getAllReportData = DataService.getAllReportData;
     self.reportPage = PostDataService.reportPage;
+    self.resourcePage = PostDataService.resourcePage;
     self.ageReport = DataService.ageReport;
     self.bpReport = DataService.bpReport;
     self.hdlReport = DataService.hdlReport;
