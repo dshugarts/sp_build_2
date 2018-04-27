@@ -1,10 +1,18 @@
 myApp.controller('LoginController', ['$http', '$location', 'UserService', function($http, $location, UserService) {
     // console.log('LoginController created');
     var self = this;
+    self.id = UserService.userObject.id;
     self.user = {
       username: '',
       password: ''
     };
+
+    self.guy = {
+      newPassword: '',
+      password: ''
+    };
+
+
     self.message = '';
 
     self.login = function () {
@@ -45,4 +53,24 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
           });
       }
     }
+
+
+    self.changePass = function(guy, id) {
+      //  console.log(entry);
+      console.log('guy', guy);
+      console.log('id', id);
+        $http({
+            method: 'PUT',
+            url: `/data/password/${id}`,
+            data: {guy: guy}
+        }).then(function(response) {
+          console.log('Update response = ', response);
+        }).then(function(response) {
+            $location.url('/home');
+        }).catch(function (error) {
+          console.log('put error', error);
+        })
+    } // end putData
+
+
 }]);

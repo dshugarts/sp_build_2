@@ -1,4 +1,5 @@
 const express = require('express');
+var encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool.js');
 const router = express.Router();
 
@@ -230,5 +231,25 @@ router.put('/update/:id', (request, response) => {
 
 }); // end update values
 
+router.put('/password/:id', (request, response) => {
+  const id = request.params.id;
+  const password = request.body.guy.newPassword;
+  console.log(id);
+  console.log(password);
+  var saveUser = {
+    id: id,
+    password: encryptLib.encryptPassword(password)
+  };
+  console.log(saveUser);
+  console.log(id, saveUser.password);
+  let queryText = `UPDATE users SET password=$2 WHERE id=$1`;
+  pool.query(queryText, [id, saveUser.password])
+    .then((result) => {
+    response.sendStatus(200);
+  })
+  .catch((err) => {
+    response.sendStatus(500);
+  })
+}); // end update password
 
 module.exports = router;
